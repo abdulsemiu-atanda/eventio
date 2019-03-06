@@ -4,6 +4,8 @@
   "description": "An application for managing and attending events",
   "main": "index.js",
   "scripts": {
+    "dev": "NODE_ENV=development webpack-dev-server --mode development --open",
+    "build": "webpack --mode production",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -39,7 +41,8 @@
     "redux-thunk": "^2.3.0",
     "sass-loader": "^7.1.0",
     "webpack": "^4.29.6",
-    "webpack-cli": "^3.2.3"
+    "webpack-cli": "^3.2.3",
+    "webpack-dev-server": "^3.2.1"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.1"
