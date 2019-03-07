@@ -1,7 +1,7 @@
 import React from 'react'
 
 import {Button, CircularButton} from '../shared/Buttons.react'
-import {Input, FloatingLabelInput} from '../shared/Input.react'
+import {Input, FloatingLabelInput, FloatingLabelInputWithError} from '../shared/Input.react'
 
 import plusIcon from '../../assets/images/plus.png'
 
@@ -44,10 +44,13 @@ const StyleGuide = () => {
       <h3>Inputs (No Label)</h3>
       <div className='no-label'>
         <Input placeholder='Base Input' />
+        <Input className='error' placeholder='Invalid Input' />
       </div>
       <h3>Inputs (Floating Label)</h3>
       <div className='floating-label'>
-        <FloatingLabelInput placeholder='Email' />
+        <FloatingLabelInput label='Email' />
+        <FloatingLabelInput className='error' type='password' label='Password' />
+        <FloatingLabelInputWithError label='Email' error='Oops something went wrong' />
       </div>
     </div>
   </div>

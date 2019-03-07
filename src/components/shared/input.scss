@@ -1,0 +1,48 @@
+@import '../../assets/styles/settings.scss';
+
+.base {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  height: 33px;
+  outline: none;
+  padding: 0;
+  width: 480px;
+
+  &::placeholder { @include fontScale(1); }
+
+  &.error { border-bottom: 1px solid $normalDelete; }
+
+  &:not(.error):focus { border-bottom: 1px solid $normalBlack; }
+}
+
+.floating-label {
+  position: relative;
+  margin-bottom: 1.5rem;
+
+  label {
+    color: $inputLabel;
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 7px 0 0;
+    transition: all 200ms;
+  }
+
+  .input-control:focus + .placeholder,
+  .input-control:valid + .placeholder {
+    @include fontScale(2);
+    transform: translate3d(0, -100%, 0);
+  }
+}
+
+.floating-label-with-error {
+
+  .floating-label { margin-bottom: 0; }
+
+  span {
+    @include fontScale(0);
+    color: $normalDelete;
+  }
+}
