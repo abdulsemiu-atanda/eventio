@@ -1,6 +1,7 @@
 @import '../../assets/styles/settings.scss';
 
 .base {
+  @include fontScale(1);
   border-top: none;
   border-left: none;
   border-right: none;
