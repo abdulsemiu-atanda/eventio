@@ -1,6 +1,7 @@
 import React from 'react'
 
 import {Button, CircularButton} from '../shared/Buttons.react'
+import {Input, FloatingLabelInput} from '../shared/Input.react'
 
 import plusIcon from '../../assets/images/plus.png'
 
@@ -37,6 +38,16 @@ const StyleGuide = () => {
         <CircularButton>
           <img alt='Plus Icon' src={plusIcon} />
         </CircularButton>
+      </div>
+    </div>
+    <div className='inputs'>
+      <h3>Inputs (No Label)</h3>
+      <div className='no-label'>
+        <Input placeholder='Base Input' />
+      </div>
+      <h3>Inputs (Floating Label)</h3>
+      <div className='floating-label'>
+        <FloatingLabelInput placeholder='Email' />
       </div>
     </div>
   </div>
