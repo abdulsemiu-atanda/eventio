@@ -1,0 +1,8 @@
+@import '../../assets/styles/settings.scss';
+
+.style-guide {
+  font-family: 'Playfair Display';
+  padding: 20px;
+
+  button.core:not(:first-of-type) { margin-left: 20px; }
+}
