@@ -6,6 +6,7 @@
   border-radius: 3px;
   border: none;
   color: $white;
+  cursor: pointer;
   font-family: 'Hind';
   height: 32px;
   width: auto;
@@ -36,5 +37,16 @@
 
   &.medium { width: 120px; }
 
-  &:not(.disabled, .delete, .edit):hover { background-color: $hoverGreen; }
+  &:not(.delete):not(.edit):not(.disabled):hover { background-color: $hoverGreen; }
+}
+
+.circle {
+  background-color: $normalBlack;
+  border: none;
+  border-radius: 28px;
+  height: 56px;
+  outline: none;
+  width: 56px;
+
+  &:hover { background-color: $hoverBlack; }
 }

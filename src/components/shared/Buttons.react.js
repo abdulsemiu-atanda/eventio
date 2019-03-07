@@ -14,4 +14,13 @@ export const Button = ({children, processing, ...otherProps}) => (
     </button>
 )
 
+export const CircularButton = ({children, ...otherProps}) => (
+  <button
+    className={classnames('circle', otherProps.className)}
+    onClick={otherProps.onClick}
+    type='button'>
+    {children}
+  </button>
+)
+
 Button.defaultProps = {children: 'Accept'}
