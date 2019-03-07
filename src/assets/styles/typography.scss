@@ -1,0 +1,12 @@
+@mixin fontWeightScale($scaleValue: 2) {
+  $weightSizes: (
+    1: 300, // Light
+    2: 400, // Normal (default)
+    3: 600, // Semi Bold
+    4: 700, // Bold
+    5: 800, // Extra Bold
+    6: 900 // Black
+  );
+
+  font-weight: map-get($weightSizes, $scaleValue);
+}
