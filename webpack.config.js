@@ -6,7 +6,8 @@ module.exports = {
   entry: './index.js',
   output: {
     filename: '[name].[contenthash].js',
-    path: path.resolve(__dirname, 'build')
+    path: path.resolve(__dirname, 'build'),
+    publicPath: '/'
   },
   module: {
     rules: [
@@ -44,6 +45,9 @@ module.exports = {
         ]
       }
     ]
+  },
+  devServer: {
+    historyApiFallback: true,
   },
   plugins: [
     new HtmlWebPackPlugin({

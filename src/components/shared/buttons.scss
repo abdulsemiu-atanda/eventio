@@ -1,0 +1,40 @@
+@import '../../assets/styles/settings.scss';
+
+.core {
+  @include fontScale(0);
+  background-color: $normalGreen;
+  border-radius: 3px;
+  border: none;
+  color: $white;
+  font-family: 'Hind';
+  height: 32px;
+  width: auto;
+  outline: none;
+  padding: 0 20px;
+  text-align: center;
+  text-transform: uppercase;
+
+  &.big {
+    @include fontScale(1);
+    height: 57px;
+    width: 240px;
+  }
+
+  &.edit {
+    background-color: $normalGrey;
+
+    &:hover { background-color: $hoverGrey; }
+  }
+
+  &.disabled { cursor: not-allowed; }
+
+  &.delete {
+    background-color: $normalDelete;
+
+    &:hover { background-color: $hoverDelete; }
+  }
+
+  &.medium { width: 120px; }
+
+  &:not(.disabled, .delete, .edit):hover { background-color: $hoverGreen; }
+}

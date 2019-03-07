@@ -10,3 +10,35 @@
 
   font-weight: map-get($weightSizes, $scaleValue);
 }
+
+$fontSizes: (
+  0: 0.875, // = 14px
+  1: 0.9375, // = 15px
+  2: 1, // = 16px
+  3: 1.0625, // = 17px
+  4: 1.125, // = 18px
+  5: 1.25, // = 20px
+  6: 1.75 // = 28px
+);
+
+@mixin fontScale($scaleValue, $fontSize: map-get($fontSizes, $scaleValue)) {
+  // Mobile-first approach: If the scale value is greater than 3, provide the media query rule for the font size.
+  @if ($scaleValue > 3) {
+    font-size: ($fontSize * 0.95) + rem;
+
+    @media (min-width: $tabletSm) {
+      font-size: $fontSize + rem;
+    }
+  } @else {
+    font-size: $fontSize + rem;
+  }
+
+  @include letterSpacinglineHeight($scaleValue: $scaleValue);
+}
+
+@mixin letterSpacinglineHeight($scaleValue: 2, $units: 'rem') {
+  $fontSize: map-get($fontSizes, $scaleValue) + unquote($units);
+
+  letter-spacing: calc(#{$fontSize} * 0.02);
+  line-height: calc(#{$fontSize} * 1.3);
+}
