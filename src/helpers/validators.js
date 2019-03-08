@@ -12,8 +12,7 @@ const validators = {
     const constraints = {
       [name]: {
         presence: true,
-        pattern: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/,
-        message: '^Email is not valid.'
+        email: {message: '^Wrong email address'}
       }
     }
 
@@ -25,7 +24,7 @@ const validators = {
         presence: true,
         length: {
           minimum: 6,
-          message: '^Password is too short (minimum of 6 characters required).'
+          message: '^Password is too short (minimum of 6 characters required)'
         }
       }
     }

@@ -7,15 +7,9 @@ class Form extends React.Component {
 
     this.state = {formData: {}, errors: []}
 
+    this.errors = this.errors.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
-    this.setFormValue = this.setFormValue.bind(this)
-  }
-
-  getChildContext() {
-    return {
-      setFormValue: this.setFormValue,
-      errors: this.errors
-    }
+    this.setFormValues = this.setFormValues.bind(this)
   }
 
   errors() { return this.props.errors ? this.state.errors.concat(this.props.errors) : this.state.errors }
@@ -31,7 +25,7 @@ class Form extends React.Component {
 
   isValid() { Object.keys(this.state.formData).length && this.state.errors.length === 0 }
 
-  setFormValue(key, value) { this.setState({formData: {...this.state.formData, [key]: value}}) }
+  setFormValues(key, value) { this.setState({formData: {...this.state.formData, [key]: value}}) }
 
   onSubmit(event) {
     event.preventDefault()
@@ -50,7 +44,13 @@ class Form extends React.Component {
     return errors
   }
 
-  render() { return <form action='#' {...this.props} onSubmit={this.onSubmit}>{this.props.children}</form> }
+  render() {
+    return (
+      <form action='#' {...this.props} onSubmit={this.onSubmit}>
+        {React.Children.map(this.props.children, child => React.cloneElement(child, {setFormValues: this.setFormValues, errors: this.state.errors}))}
+      </form>
+    )
+  }
 }
 
 Form.propTypes = {

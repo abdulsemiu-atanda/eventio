@@ -1,0 +1,9 @@
+@import '../assets/styles/settings.scss';
+
+.sign-in-form {
+
+  h4 {
+    @include fontScale(6);
+    font-family: 'Hind';
+  }
+}

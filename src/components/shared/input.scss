@@ -39,11 +39,13 @@
 }
 
 .floating-label-with-error {
+  margin-bottom: 20px;
 
   .floating-label { margin-bottom: 0; }
 
   span {
-    @include fontScale(0);
+    @include fontScale(1);
+    font-family: 'Hind';
     color: $normalDelete;
   }
 }
