@@ -1,14 +1,3 @@
 @import '../assets/styles/settings.scss';
 
-.sign-in-form {
-  font-family: 'Hind';
-
-  h4 { @include fontScale(6); }
-
-  p {
-    @include fontScale(4);
-    @include fontWeightScale(1);
-    color: $link;
-    margin-top: 0;
-  }
-}
+.sign-in-form { @include formLayout('h4', 'p') }
