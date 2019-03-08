@@ -26,6 +26,7 @@ class SignInForm extends React.Component {
     return (
       <div className='sign-in-form'>
         <h4>Sign in into Eventio.</h4>
+        <p>Enter your details below.</p>
         <Form ref='form'>
           <FormField name='email' validator={validators.emailValidator}>
             <FloatingLabelInputWithError name='email' label='Email' />
