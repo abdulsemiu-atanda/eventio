@@ -1,0 +1,45 @@
+@import '../../assets/styles/settings.scss';
+
+main {
+  display: flex;
+
+  .banner {
+    background-image: url('../../assets/images/star-wars.png');
+    background-repeat: no-repeat;
+    flex-basis: 50%;
+    background-size: 100% 100%;
+    max-width: 480px;
+    height: 100vh;
+
+    .overlay {
+      align-items: center;
+      background-color: $imageMask;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      opacity: 0.85;
+      height: 100%;
+      
+      .quote {
+        @include fontScale(6);
+        color: $white;
+        font-family: 'Playfair Display';
+        max-height: 158px;
+        max-width: 310px;
+        padding: 40px;
+        
+        p {
+          @include fontWeightScale(6);
+          margin: 0;
+        }
+      }
+    }
+  }
+
+  .page {
+    display: flex;
+    flex-basis: 70%;
+    justify-content: center;
+    padding: 40px;
+  }
+}
