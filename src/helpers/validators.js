@@ -18,6 +18,16 @@ const validators = {
 
     return template(name, data, constraints)
   },
+  confirmPasswordValidator: (name, data) => {
+    const constraints = {
+      [name]: {
+        presence: true,
+        equality: 'password'
+      }
+    }
+
+    return template(name, data, constraints)
+  },
   passwordValidator: (name, data) => {
     const constraints = {
       [name]: {

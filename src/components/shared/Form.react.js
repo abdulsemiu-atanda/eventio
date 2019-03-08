@@ -25,7 +25,14 @@ class Form extends React.Component {
 
   isValid() { Object.keys(this.state.formData).length && this.state.errors.length === 0 }
 
-  setFormValues(key, value) { this.setState({formData: {...this.state.formData, [key]: value}}) }
+  setFormValues(key, value) {
+    let trimmedValue = value
+
+    if (key === 'email')
+      trimmedValue = value.trim()
+
+    this.setState({formData: {...this.state.formData, [key]: trimmedValue}})
+  }
 
   onSubmit(event) {
     event.preventDefault()

@@ -1,0 +1,13 @@
+@mixin formLayout($heading: '.heading', $text: '.instructions') {
+  font-family: 'Hind';
+
+  #{$heading} { @include fontScale(6); }
+
+  #{$text} {
+    @include fontScale(4);
+    @include fontWeightScale(1);
+    color: $link;
+    margin-top: 0;
+    margin-bottom: 40px;
+  }
+}
