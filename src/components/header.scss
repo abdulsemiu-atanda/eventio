@@ -10,4 +10,20 @@ header {
   right: 0;
   justify-content: space-between;
   z-index: 2;
+
+  .uanuthenticated {
+    margin: 0;
+
+    a {
+      color: $link;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    span {
+      color: $prompt;
+
+      &:after { content: '  '; }
+    }
+  }
 }

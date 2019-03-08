@@ -1,14 +1,20 @@
 import React from 'react'
+import {Link, withRouter} from 'react-router-dom'
+
+import {authText, signUpActive} from '../helpers/authHelpers'
 
 import eventioLogo from '../assets/images/eventioLogo.png'
 
 import './header.scss'
 
-const Header = () => (
+const Header = ({location}) => (
   <header>
     <img alt='Eventio Logo' src={eventioLogo} />
-    <span>Don't have an account? SIGN UP</span>
+    <p className='uanuthenticated'>
+      <span>{authText({location}).prompt}</span>
+      <Link to={signUpActive({location}) ? '/' : '/sign-up'}>{authText({location}).linkText}</Link>
+    </p>
   </header>
 )
 
-export default Header
+export default withRouter(Header)
