@@ -1,5 +1,6 @@
 import React from 'react'
 import classnames from 'classnames'
+import PropTypes from 'prop-types'
 
 import {noop} from '../../helpers/tools'
 
@@ -13,6 +14,8 @@ export const Button = ({children, processing, ...otherProps}) => (
     {children}
     </button>
 )
+
+Button.propTypes = {processing: PropTypes.bool}
 
 export const CircularButton = ({children, ...otherProps}) => (
   <button
