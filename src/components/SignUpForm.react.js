@@ -24,7 +24,7 @@ class SignUpForm extends React.Component {
   render() {
     return (
       <div className='sign-up-form'>
-        <h4>Get started absolutely free</h4>
+        <h4>Get started absolutely free.</h4>
         <p>Enter your details below.</p>
         <Form ref='form'>
           <FormField name='first-name' validator={validators.required}>
