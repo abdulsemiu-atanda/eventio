@@ -2,6 +2,8 @@ const path = require('path')
 const HtmlWebPackPlugin = require("html-webpack-plugin")
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 
+const globalVariablePlugin = require('./webpack/globalVariablePlugin')
+
 module.exports = {
   entry: './index.js',
   output: {
@@ -54,6 +56,7 @@ module.exports = {
       template: "./index.html",
       filename: "./index.html"
     }),
+    globalVariablePlugin,
     new MiniCssExtractPlugin({
       filename: "[name].[contenthash].css",
       chunkFilename: "[id].css"
