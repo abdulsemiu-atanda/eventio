@@ -3,12 +3,12 @@ import classnames from 'classnames'
 import {connect} from 'react-redux'
 
 import DashboardLinks from './DashboardLinks.react'
-import Events from './Events.react'
-import Loader from './shared/Loader.react'
+import Events from './events/Events.react'
+import Loader from '../shared/Loader.react'
 
-import {asyncRequest as fetchEvents} from '../helpers/reduxHelpers'
-import {isEqual} from '../helpers/tools'
-import {EVENTS} from '../redux/actionTypes/eventActions'
+import {asyncRequest as fetchEvents} from '../../helpers/reduxHelpers'
+import {isEqual} from '../../helpers/tools'
+import {EVENTS} from '../../redux/actionTypes/eventActions'
 
 import './dashboard.scss'
 

@@ -1,12 +1,12 @@
 import React from 'react'
 import moment from 'moment'
 
-import Box from './shared/Box.react'
-import {Button} from './shared/Buttons.react'
+import Box from '../../shared/Box.react'
+import {Button} from '../../shared/Buttons.react'
 
-import profile from '../assets/images/profile.png'
+import profile from '../../../assets/images/profile.png'
 
-import {fullName} from '../helpers/tools'
+import {fullName} from '../../../helpers/tools'
 
 import './event.scss'
 

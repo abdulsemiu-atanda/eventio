@@ -1,6 +1,6 @@
 import React from 'react'
 
-import LeftPaneLayout from './shared/LeftPaneLayout.react'
+import LeftPaneLayout from '../shared/LeftPaneLayout.react'
 import SignUpForm from './SignUpForm.react'
 
 const SignUp = () => (

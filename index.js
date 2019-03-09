@@ -8,13 +8,13 @@ import thunk from 'redux-thunk'
 
 
 import AuthGateway from './src/components/auth/AuthGateway.react'
-import Dashboard from './src/components/Dashboard.react'
+import Dashboard from './src/components/dashboard/Dashboard.react'
 import ErrorBoundary from './src/components/ErrorBoundary.react'
 import Header from './src/components/Header.react'
-import Home from './src/components/Home.react'
+import Home from './src/components/auth/Home.react'
 import PageNoFound from './src/components/PageNotFound.react'
 import ProtectedRoute from './src/components/auth/ProtectedRoute.react'
-import SignUp from './src/components/SignUp.react'
+import SignUp from './src/components/auth/SignUp.react'
 import StyleGuide from './src/components/styleguide/StyleGuide.react'
 
 import rootReducer from './src/redux/reducers'

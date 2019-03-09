@@ -12,15 +12,15 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {withRouter} from 'react-router-dom'
 
-import Form from './shared/Form.react'
-import FormField from './shared/FormField.react'
-import {FloatingLabelInputWithError} from './shared/Input.react'
-import {Button} from './shared/Buttons.react'
+import Form from '../shared/Form.react'
+import FormField from '../shared/FormField.react'
+import {FloatingLabelInputWithError} from '../shared/Input.react'
+import {Button} from '../shared/Buttons.react'
 
-import {asyncRequest as signIn} from '../helpers/reduxHelpers'
-import {setToken, removeToken} from '../helpers/authHelpers'
-import {SIGN_IN} from '../redux/actionTypes/authActions'
-import validators from '../helpers/validators'
+import {asyncRequest as signIn} from '../../helpers/reduxHelpers'
+import {setToken, removeToken} from '../../helpers/authHelpers'
+import {SIGN_IN} from '../../redux/actionTypes/authActions'
+import validators from '../../helpers/validators'
 
 import './signInForm.scss'
 
