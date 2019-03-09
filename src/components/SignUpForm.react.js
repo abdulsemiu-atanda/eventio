@@ -2,19 +2,23 @@
  * @class SignUpForm
  * @desc
  * Component that constructs sign up form and handles SIGN UP actions
- * @property
+ * @property {Boolean} loading - SIGN UP request status
+ * @property {Function} signUp - Dspatches SIGN UP actions
  * @returns SignUpForm
  * @example
- * <SignUpForm />
+ * <SignUpForm loading={this.props.loading} signUp={this.props.signUp} />
  */
 
 import React from 'react'
+import {connect} from 'react-redux'
 
 import Form from './shared/Form.react'
 import FormField from './shared/FormField.react'
 import {FloatingLabelInputWithError} from './shared/Input.react'
 import {Button} from './shared/Buttons.react'
 
+import {asyncRequest as signUp} from '../helpers/reduxHelpers'
+import {SIGN_UP} from '../redux/actionTypes/userActions'
 import validators from '../helpers/validators'
 
 import './signUpForm.scss'
@@ -27,7 +31,18 @@ class SignUpForm extends React.Component {
   }
 
   onSubmit() {
-    console.log(this.refs.form.validate())
+    const errors = this.refs.form.validate().filter(error => error.error)
+
+    if (!errors.length) {
+      this.props.signUp(
+        {
+          endpoint: '/users',
+          ACTION_NAME: SIGN_UP,
+          payload: this.refs.form.formData(),
+          method: 'post'
+        }
+      )
+    }
     console.log(this.refs.form.formData())
   }
 
@@ -37,11 +52,11 @@ class SignUpForm extends React.Component {
         <h4>Get started absolutely free.</h4>
         <p>Enter your details below.</p>
         <Form ref='form'>
-          <FormField name='first-name' validator={validators.required}>
-            <FloatingLabelInputWithError name='first-name' label='First Name' />
+          <FormField name='firstName' validator={validators.required}>
+            <FloatingLabelInputWithError name='firstName' label='First Name' />
           </FormField>
-          <FormField name='last-name' validator={validators.required}>
-            <FloatingLabelInputWithError name='last-name' label='Last Name' />
+          <FormField name='lastName' validator={validators.required}>
+            <FloatingLabelInputWithError name='lastName' label='Last Name' />
           </FormField>
           <FormField name='email' validator={validators.emailValidator}>
             <FloatingLabelInputWithError name='email' label='Email' />
@@ -52,11 +67,18 @@ class SignUpForm extends React.Component {
           <FormField name='repeat-password' validator={validators.confirmPasswordValidator}>
             <FloatingLabelInputWithError name='repeat-password' label='Repeat Password' type='password' />
           </FormField>
-          <Button className='big' onClick={this.onSubmit}>SIGN UP</Button>
+          <Button
+            className='big'
+            processing={this.props.processing}
+            onClick={this.onSubmit}>
+            SIGN UP
+          </Button>
         </Form>
       </div>
     )
   }
 }
 
-export default SignUpForm
+const mapStateToProps = ({auth}) => ({loading: auth.signUpLoading, user: auth.user})
+
+export default connect(mapStateToProps, {signUp})(SignUpForm)

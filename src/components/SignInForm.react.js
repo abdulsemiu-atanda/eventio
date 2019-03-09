@@ -3,10 +3,10 @@
  * @desc
  * Component that constructs form and handles user interactions
  * @property {Boolean} loading - SIGN request status
- * @property {Function} signUp - SIGN IN action dispatcher
+ * @property {Function} signIn - SIGN IN action dispatcher
  * @returns SignInForm
  * @example
- * <SignInForm loading={this.props.loading} signUp={this.props.signUp} />
+ * <SignInForm loading={this.props.loading} signIn={this.props.signIn} />
  */
 import React from 'react'
 import {connect} from 'react-redux'
@@ -16,7 +16,7 @@ import FormField from './shared/FormField.react'
 import {FloatingLabelInputWithError} from './shared/Input.react'
 import {Button} from './shared/Buttons.react'
 
-import {asyncRequest as signUp} from '../helpers/reduxHelpers'
+import {asyncRequest as signIn} from '../helpers/reduxHelpers'
 import {SIGN_IN} from '../redux/actionTypes/userActions'
 import validators from '../helpers/validators'
 
@@ -32,7 +32,7 @@ class SignInForm extends React.Component {
     const errors = this.refs.form.validate().filter(error => error.error)
 
     if (!errors.length) {
-      this.props.signUp(
+      this.props.signIn(
         {
           endpoint: '/auth/native',
           ACTION_NAME: SIGN_IN,
@@ -71,4 +71,4 @@ class SignInForm extends React.Component {
 
 const mapStateToProps = ({auth}) => ({loading: auth.signInLoading, user: auth.user})
 
-export default connect(mapStateToProps, {signUp})(SignInForm)
+export default connect(mapStateToProps, {signIn})(SignInForm)
