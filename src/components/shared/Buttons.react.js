@@ -2,6 +2,8 @@ import React from 'react'
 import classnames from 'classnames'
 import PropTypes from 'prop-types'
 
+import Loader from './Loader.react'
+
 import {noop} from '../../helpers/tools'
 
 import './buttons.scss'
@@ -11,7 +13,7 @@ export const Button = ({children, processing, ...otherProps}) => (
     className={classnames('core', otherProps.className, {processing})}
     onClick={processing ? noop : otherProps.onClick}
     type='button'>
-    {children}
+    {processing ? <Loader loading={processing} /> : children}
     </button>
 )
 

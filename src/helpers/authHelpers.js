@@ -15,9 +15,10 @@ export const signUpActive = ({location}) => location.pathname.includes('sign-up'
 
 /**
  * Returns token from localStorage
+ * @param {String} key - token key
  * @returns {String|void}
  */
-export const getToken = () => localStorage.getItem('authToken')
+export const getToken = key => localStorage.getItem(key)
 
 export const authText = ({location}) => {
   return (
@@ -28,3 +29,12 @@ export const authText = ({location}) => {
 }
 
 export const cleanRequestHeaders = data => ({authorization: data.authorization, 'refresh-token': data['refresh-token']})
+
+export const setToken = (key, token) => localStorage.setItem(key, token)
+
+export const removeToken = keys => {
+  if (_DEV_)
+    console.warn('No clearing of session unless you are doing so from SIGN IN page.')
+
+  keys.forEach(key => localStorage.removeItem(key))
+}

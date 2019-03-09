@@ -17,7 +17,8 @@ import {FloatingLabelInputWithError} from './shared/Input.react'
 import {Button} from './shared/Buttons.react'
 
 import {asyncRequest as signIn} from '../helpers/reduxHelpers'
-import {SIGN_IN} from '../redux/actionTypes/userActions'
+import {setToken, removeToken} from '../helpers/authHelpers'
+import {SIGN_IN} from '../redux/actionTypes/authActions'
 import validators from '../helpers/validators'
 
 import './signInForm.scss'
@@ -26,8 +27,23 @@ class SignInForm extends React.Component {
   constructor() {
     super()
 
+    this.state = {}
     this.onSubmit = this.onSubmit.bind(this)
   }
+
+  componentDidMount() { removeToken(['authToken', 'refresh-token']) }
+
+  static getDerivedStateFromProps(nextProps) {
+    const {user} = nextProps
+
+    if (user.authorization) {
+      setToken('authToken', user.authorization)
+      setToken('refresh-token', user['refresh-token'])
+    }
+
+    return null
+  }
+
   onSubmit() {
     const errors = this.refs.form.validate().filter(error => error.error)
 

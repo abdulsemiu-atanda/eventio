@@ -11,3 +11,8 @@
     margin-bottom: 40px;
   }
 }
+
+@mixin square($size: 20px) {
+  height: $size;
+  width: $size
+}

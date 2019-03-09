@@ -1,5 +1,5 @@
 import {asyncActionNames} from '../../helpers/reduxHelpers'
-import {SIGN_IN, SIGN_UP} from '../actionTypes/userActions'
+import {SIGN_IN, SIGN_UP} from '../actionTypes/authActions'
 
 const inittialState = {
   signInLoading: false,
