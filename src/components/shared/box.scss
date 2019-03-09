@@ -1,0 +1,10 @@
+@import '../../assets//styles/settings.scss';
+
+.box {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Hind';
+  max-height: 296px;
+  max-width: 390px;
+}
