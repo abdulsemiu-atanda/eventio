@@ -1,9 +1,6 @@
 import React from 'react'
 
-import LeftPaneLayout from './shared/LeftPaneLayout.react'
-import {Button} from './shared/Buttons.react'
-
-import './errorBoundary.scss'
+import Error from './shared/Error.react'
 
 class ErrorBoundary extends React.Component {
   constructor() {
@@ -23,22 +20,10 @@ class ErrorBoundary extends React.Component {
   refresh() { window.location.reload() }
 
   render() {
-    if (this.state.hasError) {
-      return (
-        <LeftPaneLayout error={this.state.hasError}>
-          <div className='error'>
-            <h4>Something went wrong.</h4>
-            <p>
-              Seems like Darth Vader just hits our website and drops it down.
-              Please press the refresh button and everything should be fine again.
-            </p>
-            <Button className='big dark' onClick={this.refresh}>Refresh</Button>
-          </div>
-        </LeftPaneLayout>
-      )
-    } else {
+    if (this.state.hasError)
+      return <Error error={this.state.hasError} refresh={this.refresh} />
+    else
       return this.props.children
-    }
   }
 }
 

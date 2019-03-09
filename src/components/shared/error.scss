@@ -1,0 +1,7 @@
+@import '../../assets/styles/settings.scss';
+
+.error {
+  @include formLayout('h4', 'p');
+  height: 433px;
+  width: 700px;
+}
