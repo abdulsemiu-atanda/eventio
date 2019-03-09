@@ -38,6 +38,9 @@ class Dashboard extends React.Component {
   }
 
   componentDidMount() {
+    if (this.props.events.length)
+      this.setState({loading: false})
+
     this.props.fetchEvents({
       endpoint: '/events',
       ACTION_NAME: EVENTS,

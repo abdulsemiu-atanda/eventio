@@ -47,13 +47,12 @@
 }
 
 .circle {
+  @include square(56px);
   background-color: $normalBlack;
   border: none;
   border-radius: 28px;
   cursor: pointer;
-  height: 56px;
   outline: none;
-  width: 56px;
 
   &:hover { background-color: $hoverBlack; }
 }
