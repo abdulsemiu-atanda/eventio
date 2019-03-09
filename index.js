@@ -6,10 +6,12 @@ import {applyMiddleware, createStore} from 'redux'
 import {createLogger} from 'redux-logger'
 import thunk from 'redux-thunk'
 
+import Dashboard from './src/components/Dashboard.react'
 import ErrorBoundary from './src/components/ErrorBoundary.react'
 import Header from './src/components/Header.react'
 import Home from './src/components/Home.react'
 import PageNoFound from './src/components/PageNotFound.react'
+import ProtectedRoute from './src/components/auth/ProtectedRoute.react'
 import SignUp from './src/components/SignUp.react'
 import StyleGuide from './src/components/styleguide/StyleGuide.react'
 
@@ -36,6 +38,7 @@ const Root = () => (
         <ErrorBoundary>
           <Switch>
             <Route exact path='/' component={Home} />
+            <ProtectedRoute path='/dashboard' component={Dashboard} />
             <Route path='/sign-up' component={SignUp} />
             <Route path='/style-guide' component={StyleGuide} />
             <Route component={PageNoFound} />

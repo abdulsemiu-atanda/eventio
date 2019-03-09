@@ -1,6 +1,7 @@
 import axios from 'axios'
 
 import {cleanRequestHeaders} from './authHelpers'
+import {clearResponse} from './tools'
 
 /**
  * Constructs async actions constants
@@ -60,6 +61,6 @@ export const asyncRequest = ({endpoint, ACTION_NAME, payload, method, token}) =>
 
   axios({method, url:`${API_HOST}${endpoint}`, data: payload ? payload : {}, headers: axiosHeaders({token})})
   .then(response => {
-    dispatch(asyncActions(ACTION_NAME).success({...response.data, ...cleanRequestHeaders(response.headers)}))
+    dispatch(asyncActions(ACTION_NAME).success(clearResponse(response.data, cleanRequestHeaders(response.headers))))
   }).catch(err => dispatch(asyncActions(ACTION_NAME).failure(true, err)))
 }

@@ -1,0 +1,9 @@
+@import '../assets/styles/settings.scss';
+
+.dashboard {
+  background-color: $background;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}

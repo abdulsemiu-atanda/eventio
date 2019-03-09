@@ -10,6 +10,7 @@
  */
 import React from 'react'
 import {connect} from 'react-redux'
+import {withRouter} from 'react-router-dom'
 
 import Form from './shared/Form.react'
 import FormField from './shared/FormField.react'
@@ -39,6 +40,7 @@ class SignInForm extends React.Component {
     if (user.authorization) {
       setToken('authToken', user.authorization)
       setToken('refresh-token', user['refresh-token'])
+      nextProps.history.push('dashboard')
     }
 
     return null
@@ -87,4 +89,4 @@ class SignInForm extends React.Component {
 
 const mapStateToProps = ({auth}) => ({loading: auth.signInLoading, user: auth.user})
 
-export default connect(mapStateToProps, {signIn})(SignInForm)
+export default withRouter(connect(mapStateToProps, {signIn})(SignInForm))

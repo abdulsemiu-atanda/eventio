@@ -16,3 +16,5 @@
   height: $size;
   width: $size
 }
+
+@mixin defaultBoxShadow($boxShadowEffects: 0 0 7px 1px, $boxShadowColor: $boxShadow) { box-shadow: $boxShadowEffects $boxShadowColor; }

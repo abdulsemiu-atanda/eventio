@@ -1,0 +1,11 @@
+@import '../assets//styles/settings.scss';
+
+.events {
+  display: flex;
+
+  .event {
+    flex-basis: 25%;
+
+    &:not(:last-of-type) { margin-right: 10px; }
+  }
+}
