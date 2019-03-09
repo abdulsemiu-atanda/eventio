@@ -1,5 +1,7 @@
 import axios from 'axios'
 
+import {cleanRequestHeaders} from './authHelpers'
+
 /**
  * Constructs async actions constants
  * @param {string} baseName
@@ -47,14 +49,17 @@ export const axiosHeaders = ({token}) => {
  * Dispatches redux actions
  * @param {String} endpoint - API endpoint
  * @param {String} ACTION_NAME - name of dispatched action
+ * @param {Object} payload - Request payload
+ * @param {String} method = HTTP verb (get, post, patch, put)
  * @param {String} token - User access token
  * @returns {Function}
  */
-export const asyncRequest = (endpoint, ACTION_NAME, token) => dispatch => {
+export const asyncRequest = ({endpoint, ACTION_NAME, payload, method, token}) => dispatch => {
   dispatch(asyncActions(ACTION_NAME).loading(true))
+  console.log(axiosHeaders({token}))
 
-  axios.get(`${API_URL}${endpoint}`, {headers: axiosHeaders({token})})
+  axios({method, url:`${API_HOST}${endpoint}`, data: payload ? payload : {}, headers: axiosHeaders({token})})
   .then(response => {
-    dispatch(asyncActions(ACTION_NAME).success(response.data))
+    dispatch(asyncActions(ACTION_NAME).success({...response.data, ...cleanRequestHeaders(response.headers)}))
   }).catch(err => dispatch(asyncActions(ACTION_NAME).failure(true, err)))
 }

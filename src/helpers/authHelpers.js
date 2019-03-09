@@ -27,3 +27,4 @@ export const authText = ({location}) => {
   )
 }
 
+export const cleanRequestHeaders = data => ({authorization: data.authorization, 'refresh-token': data['refresh-token']})
