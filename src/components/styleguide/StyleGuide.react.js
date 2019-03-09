@@ -1,7 +1,7 @@
 import React from 'react'
 
-import {Button, CircularButton} from '../shared/Buttons.react'
-import {Input, FloatingLabelInput, FloatingLabelInputWithError} from '../shared/Input.react'
+import {Button, CircularButton} from '../shared/button/Buttons.react'
+import {Input, FloatingLabelInput, FloatingLabelInputWithError} from '../shared/input/Input.react'
 
 import plusIcon from '../../assets/images/plus.png'
 

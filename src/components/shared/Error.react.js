@@ -1,7 +1,7 @@
 import React from 'react'
 
 import LeftPaneLayout from './LeftPaneLayout.react'
-import {Button} from './Buttons.react'
+import {Button} from './button/Buttons.react'
 
 import './error.scss'
 

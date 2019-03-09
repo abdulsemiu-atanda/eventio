@@ -2,6 +2,7 @@ import React from 'react'
 import classnames from 'classnames'
 import {connect} from 'react-redux'
 
+import {CircularButton} from '../shared/button/Buttons.react'
 import DashboardLinks from './DashboardLinks.react'
 import Events from './events/Events.react'
 import Loader from '../shared/Loader.react'
@@ -9,6 +10,8 @@ import Loader from '../shared/Loader.react'
 import {asyncRequest as fetchEvents} from '../../helpers/reduxHelpers'
 import {isEqual} from '../../helpers/tools'
 import {EVENTS} from '../../redux/actionTypes/eventActions'
+
+import plusIcon from '../../assets/images/plus.png'
 
 import './dashboard.scss'
 
@@ -94,6 +97,9 @@ class Dashboard extends React.Component {
             </div>
           </div>
           <Events className={classnames({list: !grid})} events={this.state.events} />
+          <CircularButton className='add'>
+            <img alt='Plus Icon' src={plusIcon} />
+          </CircularButton>
         </div>
       }
       </main>

@@ -2,13 +2,18 @@
 
 .dashboard {
   background-color: $background;
-  display: flex;
   height: 100vh;
 
   .dashboard-inner {
     margin: 60px auto 0;
     width: 100%;
     max-width: 1200px;
+
+    .add {
+      position: absolute;
+      bottom: 40px;
+      right: 40px;
+    }
   }
 
   .nav {

@@ -2,9 +2,9 @@ import React from 'react'
 import classnames from 'classnames'
 import PropTypes from 'prop-types'
 
-import Loader from './Loader.react'
+import Loader from '../Loader.react'
 
-import {noop} from '../../helpers/tools'
+import {noop} from '../../../helpers/tools'
 
 import './buttons.scss'
 
