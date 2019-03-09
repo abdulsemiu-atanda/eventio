@@ -3,42 +3,11 @@
 main {
   display: flex;
 
-  .banner {
-    background-image: url('../../assets/images/star-wars.png');
-    background-repeat: no-repeat;
-    flex-basis: 50%;
-    background-size: 100% 100%;
-    max-width: 480px;
-    height: 100vh;
-
-    .overlay {
-      align-items: center;
-      background-color: $imageMask;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      opacity: 0.85;
-      height: 100%;
-      
-      .quote {
-        @include fontScale(6);
-        color: $white;
-        font-family: 'Playfair Display';
-        max-height: 158px;
-        max-width: 310px;
-        padding: 40px;
-        
-        p {
-          @include fontWeightScale(6);
-          margin: 0;
-        }
-      }
-    }
-  }
+  .banner { display: none; }
 
   .page {
     display: flex;
-    flex-basis: 70%;
+    flex-basis: 100%;
     justify-content: center;
     align-items: center;
     padding: 40px;
@@ -50,5 +19,43 @@ main {
       height: 100vh;
       padding: 0;
     }
+  }
+
+  @media (min-width: $tabletLg) {
+    .banner {
+      background-image: url('../../assets/images/star-wars.png');
+      background-repeat: no-repeat;
+      display: block;
+      flex-basis: 50%;
+      background-size: 100% 100%;
+      max-width: 480px;
+      height: 100vh;
+  
+      .overlay {
+        align-items: center;
+        background-color: $imageMask;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        opacity: 0.85;
+        height: 100%;
+        
+        .quote {
+          @include fontScale(6);
+          color: $white;
+          font-family: 'Playfair Display';
+          max-height: 158px;
+          max-width: 310px;
+          padding: 40px;
+
+          p {
+            @include fontWeightScale(6);
+            margin: 0;
+          }
+        }
+      }
+    }
+
+    .page { flex-basis: 70%; }
   }
 }
