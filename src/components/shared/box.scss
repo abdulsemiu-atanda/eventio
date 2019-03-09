@@ -1,13 +1,15 @@
 @import '../../assets//styles/settings.scss';
 
 .box {
-  @include defaultBoxShadow;
   align-items: flex-start;
   background-color: $white;
-  border: 1px solid $boxBorder;
+  border-bottom: 2px solid $boxBorder;
+  border-radius: 2px;
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
   font-family: 'Hind';
+  justify-content: space-between;
   max-height: 296px;
   max-width: 390px;
   padding: 40px;

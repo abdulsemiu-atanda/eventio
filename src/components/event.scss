@@ -2,5 +2,43 @@
 
 .event {
 
-  p { margin-top: 0; }
+  h5 {
+    @include fontScale(5);
+    @include fontWeightScale(1);
+    margin: 0;
+  }
+
+  p {
+    margin-top: 0;
+
+    &.description {
+      @include fontWeightScale(1);
+      @include fontScale(1);
+      color: $boxDescription;
+      margin-bottom: 40px;
+      margin-top: 20px;
+      max-width: 227px;
+      word-break: break-word;
+    }
+
+    &.owner { color: $text; }
+
+    &.time-stamp { color: $time; }
+  }
+
+  .action-items {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    .info {
+
+      img {
+        margin-right: 8px;
+        vertical-align: middle;
+      }
+
+      span {color: $link; }
+    }
+  }
 }

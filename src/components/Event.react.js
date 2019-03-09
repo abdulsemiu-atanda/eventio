@@ -1,4 +1,5 @@
 import React from 'react'
+import moment from 'moment'
 
 import Box from './shared/Box.react'
 import {Button} from './shared/Buttons.react'
@@ -23,11 +24,15 @@ class Event extends React.Component {
 
     return (
       <Box className='event'>
-        <h4>{title}</h4>
-        <p>{fullName(owner)}</p>
-        <p>{description}</p>
+        <p className='time-stamp'>{moment(startAt).format('lll')}</p>
+        <h5>{title}</h5>
+        <p className='owner'>{fullName(owner)}</p>
+        <p className='description'>{description}</p>
         <div className='action-items'>
-          <img alt='Profile Image' src={profile} />
+          <div className='info'>
+            <img alt='Profile Image' src={profile} />
+            <span>{`${attendees.length} of ${capacity}`}</span>
+          </div>
           <Button className='medium' onClick={this.onClick}>Join</Button>
         </div>
       </Box>

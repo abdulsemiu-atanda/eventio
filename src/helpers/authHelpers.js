@@ -38,3 +38,9 @@ export const removeToken = keys => {
 
   keys.forEach(key => localStorage.removeItem(key))
 }
+
+export const isLoggedIn = () => {
+  const authToken = getToken('authToken')
+
+  return authToken && !isTokenExpired(authToken)
+}

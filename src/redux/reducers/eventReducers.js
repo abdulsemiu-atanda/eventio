@@ -1,10 +1,14 @@
+import moment from 'moment'
+
 import {asyncActionNames} from '../../helpers/reduxHelpers'
 import {EVENTS} from '../actionTypes/eventActions'
 
 const initialState = {
   events: [],
+  futureEvents: [],
   error: {status: false, message: ''},
-  loading: false
+  loading: false,
+  pastEvents: []
 }
 
 const eventReducers = (state = initialState, action) => {
@@ -22,7 +26,13 @@ const eventReducers = (state = initialState, action) => {
         loading: false
       }
     case asyncActionNames(EVENTS).success:
-      return {...state, events: action.data}
+      return {
+        ...state,
+        loading: false,
+        events: action.data,
+        futureEvents: action.data.filter(event => moment(event.startAt).diff(moment.now()) > 0),
+        pastEvents: action.data.filter(event => moment(event.startAt).diff(moment.now()) < 0)
+      }
     default:
       return state
   }

@@ -8,3 +8,5 @@ export const clearResponse = (response, headers) => {
   else
     return {...response, ...headers}
 }
+
+export const isEqual = (currentValue, previousValue) => (currentValue.length === previousValue.length)

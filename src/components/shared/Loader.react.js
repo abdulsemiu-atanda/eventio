@@ -1,11 +1,12 @@
 import React from 'react'
+import classnames from 'classnames'
 
 import './loader.scss'
 
-const Loader = ({loading}) => {
+const Loader = ({className, loading}) => {
   if (loading) {
     return (
-      <div className="loader" />
+      <div className={classnames('loader', className)} />
     )
   } else {
     return null

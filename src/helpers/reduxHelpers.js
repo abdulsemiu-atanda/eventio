@@ -57,7 +57,6 @@ export const axiosHeaders = ({token}) => {
  */
 export const asyncRequest = ({endpoint, ACTION_NAME, payload, method, token}) => dispatch => {
   dispatch(asyncActions(ACTION_NAME).loading(true))
-  console.log(axiosHeaders({token}))
 
   axios({method, url:`${API_HOST}${endpoint}`, data: payload ? payload : {}, headers: axiosHeaders({token})})
   .then(response => {

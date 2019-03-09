@@ -1,5 +1,4 @@
 import React from 'react'
-import {connect} from 'react-redux'
 
 import Event from './Event.react'
 
@@ -18,7 +17,6 @@ class Events extends React.Component {
   }
 
   render() {
-    console.log(this.props)
     return (
       <div className='events'>
         {
@@ -31,6 +29,4 @@ class Events extends React.Component {
   }
 }
 
-const mapStateToProps = ({events}) => ({...events})
-
-export default connect(mapStateToProps)(Events)
+export default Events

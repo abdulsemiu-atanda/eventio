@@ -4,6 +4,29 @@
   background-color: $background;
   display: flex;
   height: 100vh;
-  justify-content: center;
-  align-items: center;
+
+  .dashboard-inner {
+    margin: 60px auto 0;
+    width: 100%;
+    max-width: 1200px;
+  }
+
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    width: 100%;
+
+    .sort {
+      a {
+        @include fontScale(0);
+        color: $normalGrey;
+        cursor: pointer;
+
+        &.active { color: $normalBlack; }
+
+        &:not(:last-of-type) { margin-right: 15px; }
+      }
+    }
+  }
 }
