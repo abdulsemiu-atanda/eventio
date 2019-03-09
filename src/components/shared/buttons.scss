@@ -27,6 +27,12 @@
     &:hover { background-color: $hoverGrey; }
   }
 
+  &.dark {
+    background-color: $normalBlack;
+
+    &:hover { background-color: $hoverBlack; }
+  }
+
   &.disabled { cursor: not-allowed; }
 
   &.delete {
@@ -37,7 +43,7 @@
 
   &.medium { width: 120px; }
 
-  &:not(.delete):not(.edit):not(.disabled):hover { background-color: $hoverGreen; }
+  &:not(.delete):not(.edit):not(.disabled):not(.dark):hover { background-color: $hoverGreen; }
 }
 
 .circle {

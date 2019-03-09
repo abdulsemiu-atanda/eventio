@@ -1,9 +1,10 @@
 import React from 'react'
+import classnames from 'classnames'
 import PropTypes from 'prop-types'
 
 import './leftPaneLayout.scss'
 
-const LeftPaneLayout = ({className, children}) => (
+const LeftPaneLayout = ({className, error, children}) => (
   <main className={className}>
     <div className='banner'>
       <div className='overlay'>
@@ -12,7 +13,7 @@ const LeftPaneLayout = ({className, children}) => (
         </div>
       </div>
     </div>
-    <div className='page'>{children}</div>
+    <div className={classnames('page', {error})}>{children}</div>
   </main>
 )
 

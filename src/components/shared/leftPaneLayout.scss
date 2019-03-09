@@ -42,5 +42,13 @@ main {
     justify-content: center;
     align-items: center;
     padding: 40px;
+
+    &.error {
+      background-image: url('../../assets/images/darth-vader.png');
+      background-repeat: no-repeat;
+      background-position: left -12em top 14em;
+      height: 100vh;
+      padding: 0;
+    }
   }
 }
