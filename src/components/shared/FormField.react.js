@@ -1,3 +1,18 @@
+/**
+ * @class FormField
+ * @desc
+ * Handles updating formData with input values, it should be used in conjuction wuth Form
+ * @property {Array} errors - Form errors
+ * @property {HTMLNode} children - Input element
+ * @property {Function} onChange - Handles value change in input
+ * @property {Function} validator - input validation function
+ * @returns FormFiels
+ * @example
+ * <FormField>
+ *    <FloatingLabelInput />
+ * </FormField>
+ */
+
 import React from 'react'
 import PropTypes from 'prop-types'
 

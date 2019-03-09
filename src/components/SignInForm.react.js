@@ -1,3 +1,13 @@
+/**
+ * @class SignInForm
+ * @desc
+ * Component that constructs form and handles user interactions
+ * @property {Boolean} loading - SIGN request status
+ * @property {Function} signUp - SIGN IN action dispatcher
+ * @returns SignInForm
+ * @example
+ * <SignInForm loading={this.props.loading} signUp={this.props.signUp} />
+ */
 import React from 'react'
 import {connect} from 'react-redux'
 
@@ -20,7 +30,6 @@ class SignInForm extends React.Component {
   }
   onSubmit() {
     const errors = this.refs.form.validate().filter(error => error.error)
-    console.log(errors)
 
     if (!errors.length) {
       this.props.signUp(
@@ -37,7 +46,6 @@ class SignInForm extends React.Component {
   }
 
   render() {
-    console.log(this.props)
     return (
       <div className='sign-in-form'>
         <h4>Sign in into Eventio.</h4>

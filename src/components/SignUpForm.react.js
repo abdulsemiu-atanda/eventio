@@ -1,3 +1,13 @@
+/**
+ * @class SignUpForm
+ * @desc
+ * Component that constructs sign up form and handles SIGN UP actions
+ * @property
+ * @returns SignUpForm
+ * @example
+ * <SignUpForm />
+ */
+
 import React from 'react'
 
 import Form from './shared/Form.react'

@@ -1,3 +1,19 @@
+/**
+ * @class Form
+ * @desc
+ * Handles form releated actions like tracking inout values, errors and formData
+ * @property {HTMLNode} children - Form elements like inputs and buttons, inputs should be wrapped in FormField
+ * @property {Array} errors - Form errors
+ * @property {Function} onSubmit - Handles form submission
+ * @returns Form
+ * @example
+ * <Form errors={this.props.errors} onSubmit={this.props.onSubmit}>
+ *  <FormField>
+ *    <FloatingLabelInput />
+ *  </FormField>
+ *  <Button>Get started</Button>
+ * </Form>
+ */
 import React, {Children} from 'react'
 import PropTypes from 'prop-types'
 
