@@ -1,4 +1,5 @@
 import React from 'react'
+import classnames from 'classnames'
 
 import Event from './Event.react'
 
@@ -18,7 +19,7 @@ class Events extends React.Component {
 
   render() {
     return (
-      <div className='events'>
+      <div className={classnames('events', this.props.className)}>
         {
           this.props.events.map(event => (
             <Event key={event.id} {...event} onClick={this.onClick} />

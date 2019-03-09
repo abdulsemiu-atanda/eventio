@@ -16,9 +16,16 @@ class Dashboard extends React.Component {
   constructor(props) {
     super(props)
 
-    this.state = {events: props.events, loading: true, past: false, future: false}
+    this.state = {
+      events: props.events,
+      loading: true,
+      past: false,
+      future: false,
+      grid: true
+    }
 
     this.onClickLink = this.onClickLink.bind(this)
+    this.toggleViewMode = this.toggleViewMode.bind(this)
   }
 
   componentDidUpdate(prevProps) {
@@ -48,8 +55,10 @@ class Dashboard extends React.Component {
     })
   }
 
+  toggleViewMode() { this.setState({grid: !this.state.grid}) }
+
   render() {
-    const {events, loading, past, future} = this.state
+    const {events, loading, past, future, grid} = this.state
     const {futureEvents, pastEvents} = this.props
 
     return (
@@ -80,9 +89,11 @@ class Dashboard extends React.Component {
               />
             </div>
             <div className='view-modes'>
+              <i className={classnames('fa fa-th', {active: grid})} aria-hidden="true" onClick={this.toggleViewMode}></i>
+              <i className={classnames('fa fa-bars', {active: !grid})} aria-hidden="true" onClick={this.toggleViewMode}></i>
             </div>
           </div>
-          <Events events={this.state.events} />
+          <Events className={classnames({list: !grid})} events={this.state.events} />
         </div>
       }
       </main>

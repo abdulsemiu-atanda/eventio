@@ -28,5 +28,18 @@
         &:not(:last-of-type) { margin-right: 15px; }
       }
     }
+
+    .view-modes {
+      display: flex;
+      justify-content: space-between;
+      width: 45px;
+
+      .fa {
+        color: $normalGrey;
+        cursor: pointer;
+
+        &.active { color: $normalBlack; }
+      }
+    }
   }
 }
