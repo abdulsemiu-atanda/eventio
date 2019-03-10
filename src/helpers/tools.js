@@ -36,3 +36,5 @@ export const eventsHasBeenUpdated = (previousValue, currentValue) => {
       })
    )
 }
+
+export const dateToISOString = date => (new Date(date).toISOString())

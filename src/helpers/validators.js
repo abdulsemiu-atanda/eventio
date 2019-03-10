@@ -43,7 +43,10 @@ const validators = {
     const constraints = {
       [name]: {
         presence: true,
-        datetime: {dateOnly: true}
+        datetime: {
+          dateOnly: true,
+          earliest: moment.utc().toISOString()
+        }
       }
     }
     return template(name, data, constraints)

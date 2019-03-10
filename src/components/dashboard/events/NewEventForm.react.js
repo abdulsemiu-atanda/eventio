@@ -1,10 +1,14 @@
 import React from 'react'
+import {connect} from 'react-redux'
 
 import {Button} from '../../shared/button/Buttons.react'
 import Form from '../../shared/form/Form.react'
 import FormField from '../../shared/form/FormField.react'
 import {FloatingLabelInputWithError} from '../../shared/input/Input.react'
 
+import {asyncRequest as createEvent} from '../../../helpers/reduxHelpers'
+import {dateToISOString} from '../../../helpers/tools'
+import {NEW_EvENT} from '../../../redux/actionTypes/eventActions'
 import validators from '../../../helpers/validators'
 
 import './newEventForm.scss'
@@ -17,6 +21,11 @@ class NewEventForm extends React.Component {
   }
 
   onSubmit() {
+    const formData = this.refs.form.formData()
+    const errors = this.refs.form.validate().filter(error => error.error)
+
+    if (!errors.length)
+      console.log({...formData, startsAt: dateToISOString(`${formData.date} ${formData.time}`)})
     console.log(this.refs.form.validate())
     console.log(this.refs.form.formData())
   }
@@ -49,4 +58,6 @@ class NewEventForm extends React.Component {
   }
 }
 
-export default NewEventForm
+const mapStateToProps = ({newEvent}) => ({...newEvent})
+
+export default connect(mapStateToProps, {createEvent})(NewEventForm)
