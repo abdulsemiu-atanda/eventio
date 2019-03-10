@@ -1,10 +1,10 @@
 import React from 'react'
 import {Link, withRouter} from 'react-router-dom'
 
-import {authText, signUpActive, isLoggedIn} from '../helpers/authHelpers'
+import {authText, signUpActive, isLoggedIn} from '../../helpers/authHelpers'
 
-import eventioDark from '../assets/images/eventioDark.png'
-import eventioLogo from '../assets/images/eventioLogo.png'
+import eventioDark from '../../assets/images/eventioDark.png'
+import eventioLogo from '../../assets/images/eventioLogo.png'
 
 import './header.scss'
 
