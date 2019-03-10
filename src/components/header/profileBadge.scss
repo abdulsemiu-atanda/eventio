@@ -1,0 +1,12 @@
+@import '../../assets/styles/settings.scss';
+
+.profile-badge {
+  @include square(40px);
+  align-items: center;
+  border-radius: 50%;
+  background-color: $normalGrey;
+  font-family: 'Hind';
+  justify-content: center;
+
+  span { @include fontWeightScale(1); }
+}
