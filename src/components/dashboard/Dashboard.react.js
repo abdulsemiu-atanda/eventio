@@ -2,10 +2,12 @@ import React from 'react'
 import classnames from 'classnames'
 import {connect} from 'react-redux'
 
+import {Modal} from '../shared/modals/Modals.react'
 import {CircularButton} from '../shared/button/Buttons.react'
 import DashboardLinks from './DashboardLinks.react'
 import Events from './events/Events.react'
 import Loader from '../shared/Loader.react'
+import NewEventForm from './events/NewEventForm.react'
 
 import {asyncRequest as fetchEvents} from '../../helpers/reduxHelpers'
 import {isEqual, eventsHasBeenUpdated} from '../../helpers/tools'
@@ -97,9 +99,14 @@ class Dashboard extends React.Component {
             </div>
           </div>
           <Events className={classnames({list: !grid})} events={this.state.events} />
-          <CircularButton className='add'>
-            <img alt='Plus Icon' src={plusIcon} />
-          </CircularButton>
+          <Modal showCloser launcher={
+            <CircularButton className='add'>
+              <img alt='Plus Icon' src={plusIcon} />
+            </CircularButton>}>
+            <div className='new-event'>
+              <NewEventForm />
+            </div>
+          </Modal>
         </div>
       }
       </main>

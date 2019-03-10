@@ -1,6 +1,6 @@
 @import '../../assets/styles/settings.scss';
 
-.error {
+div.error {
   @include formLayout('h4', 'p');
   height: 433px;
   width: 700px;

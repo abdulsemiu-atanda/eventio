@@ -1,0 +1,12 @@
+@import '../../../assets/styles/settings.scss';
+
+.new-event-form {
+  @include formLayout('h4', 'p');
+
+  h4, p { text-align: center; }
+
+  button {
+    display: block;
+    margin: 0 auto;
+  }
+}

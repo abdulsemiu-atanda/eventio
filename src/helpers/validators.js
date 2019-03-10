@@ -1,4 +1,15 @@
+import moment from 'moment'
 import validate from 'validate.js'
+
+validate.extend(validate.validators.datetime, {
+  parse: function(value, options) {
+    return +moment.utc(value)
+  },
+  format: function(value, options) {
+    var format = options.dateOnly ? "YYYY-MM-DD" : "YYYY-MM-DD hh:mm:ss";
+    return moment.utc(value).format(format)
+  }
+})
 
 const template = (name, data, constraints) => {
   const errors = {name, error: validate(data, constraints, {format: 'flat'})}
@@ -23,6 +34,28 @@ const validators = {
       [name]: {
         presence: true,
         equality: 'password'
+      }
+    }
+
+    return template(name, data, constraints)
+  },
+  dateValidator: (name, data) => {
+    const constraints = {
+      [name]: {
+        presence: true,
+        datetime: {dateOnly: true}
+      }
+    }
+    return template(name, data, constraints)
+  },
+  numberValidator: (name, data) => {
+    const constraints = {
+      [name]: {
+        presence: true,
+        numericality: {
+          onlyInteger: true,
+          greaterThan: 0
+        }
       }
     }
 

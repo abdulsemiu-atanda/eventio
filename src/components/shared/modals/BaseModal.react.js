@@ -52,8 +52,8 @@ class BaseModal extends React.Component {
                       <CloserComponent closer={this.props.modalClosed} />
                     )
                   }
-                  {this.props.children}
                 </div>
+                {this.props.children}
               </div>
             </div>
           )
