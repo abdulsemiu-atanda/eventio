@@ -1,0 +1,39 @@
+@import '../../../assets/styles/settings.scss';
+
+.dropdown-base {
+  display: inline-block;
+  position: relative;
+  
+  .contents {
+    color: $text;
+    display: none;
+    font-family: 'Hind';
+    position: absolute;
+    background-color: $white;
+    border-radius: 10px;
+    margin-top: 10px;
+    width: 140px;
+    box-shadow: 0px 8px 16px 0px $boxShadow;
+    padding: 8px;
+    z-index: 1;
+
+    span {
+      display: inline;
+      margin: 0;
+    }
+
+    &.active { display: block; }
+
+    &:after {
+      @include fillContainer($left: 50%, $top: 3px);
+      @include square(0);
+      border: 10px solid $background;
+      border-color: $background $background transparent transparent;
+      box-shadow: 3px -3px 3px 0 $boxShadow;
+      content: '';
+      margin-left: -10px;
+      transform-origin: 0 0;
+      transform: rotate(-45deg);
+    }
+  }
+}

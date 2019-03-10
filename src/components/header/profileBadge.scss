@@ -1,12 +1,41 @@
 @import '../../assets/styles/settings.scss';
 
 .profile-badge {
-  @include square(40px);
-  align-items: center;
-  border-radius: 50%;
-  background-color: $normalGrey;
+  display: flex;
   font-family: 'Hind';
-  justify-content: center;
+  justify-content: space-between;
+  margin-right: 10px;
+  width: 180px;
 
-  span { @include fontWeightScale(1); }
+  .initials {
+    @include square(40px);
+    align-items: center;
+    border-radius: 50%;
+    background-color: $normalGrey;
+  }
+
+  span {
+    @include fontWeightScale(1);
+    display: inline-block;
+    margin: 8px 9px;
+  }
+
+  .name {
+    @include fontScale(1);
+    color: $text;
+    cursor: pointer;
+    margin-top: 13px;
+
+    &:after {
+      @include fillContainer($left: 50%, $top: 3px);
+      background-color: white;
+      border: 5px solid $normalGrey;
+      border-color: $normalGrey $normalGrey transparent transparent;
+      content: '';
+      margin-top: 17px;
+      margin-left: 85px;
+      transform-origin: 0 0;
+      transform: rotate(135deg);
+    }
+  }
 }
