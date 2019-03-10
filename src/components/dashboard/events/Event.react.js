@@ -1,15 +1,12 @@
 import React from 'react'
 import moment from 'moment'
 import classnames from 'classnames'
-import {connect} from 'react-redux'
 
 import Box from '../../shared/box/Box.react'
 import {Button} from '../../shared/button/Buttons.react'
 
 import profile from '../../../assets/images/profile.png'
 
-import {asyncRequest} from '../../../helpers/reduxHelpers'
-import {ATTEND_EVENT, LEAVE_EVENT, EVENTS} from '../../../redux/actionTypes/eventActions'
 import {decodeToken, getToken} from '../../../helpers/authHelpers'
 import {fullName, eventButtonText, isAttending} from '../../../helpers/tools'
 
@@ -19,8 +16,7 @@ class Event extends React.Component {
   constructor() {
     super()
 
-    this.token = getToken('authToken')
-    this.user = decodeToken(this.token).user
+    this.user = decodeToken(getToken('authToken')).user
 
     this.onClick = this.onClick.bind(this)
   }
@@ -28,18 +24,8 @@ class Event extends React.Component {
   onClick() {
     const {attendees, owner, id} = this.props
     const action = eventButtonText({attendees, owner}, this.user)
-    const endpoint = `/events/${id}/attendees/me`
-    const token = this.token
 
-    if (action === 'join')
-      this.props.asyncRequest({endpoint, ACTION_NAME: ATTEND_EVENT, method: 'post', token})
-    else if (action === 'leave')
-      this.props.asyncRequest({endpoint, ACTION_NAME: LEAVE_EVENT, method: 'delete', token})
-  }
-
-  componentDidUpdate(prevProps) {
-    if (this.props.going || this.props.left)
-      this.props.asyncRequest({endpoint: '/events', ACTION_NAME: EVENTS, method: 'get'})
+    this.props.onClick(id, action)
   }
 
   render() {
@@ -67,6 +53,4 @@ class Event extends React.Component {
   }
 }
 
-const mapStateToProps = ({eventActions}) => ({...eventActions})
-
-export default connect(mapStateToProps, {asyncRequest})(Event)
+export default Event
