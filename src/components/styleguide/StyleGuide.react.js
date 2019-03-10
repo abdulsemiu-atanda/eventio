@@ -2,6 +2,7 @@ import React from 'react'
 
 import {Button, CircularButton} from '../shared/button/Buttons.react'
 import {Input, FloatingLabelInput, FloatingLabelInputWithError} from '../shared/input/Input.react'
+import {Modal} from '../shared/modals/Modals.react'
 
 import plusIcon from '../../assets/images/plus.png'
 
@@ -52,6 +53,10 @@ const StyleGuide = () => {
         <FloatingLabelInput className='error' type='password' label='Password' />
         <FloatingLabelInputWithError label='Email' error='Oops something went wrong' />
       </div>
+    </div>
+    <div className='modals'>
+      <h3>Modal</h3>
+      <Modal showCloser launcher={<CircularButton><img alt='Plus Icon' src={plusIcon} /></CircularButton>} />
     </div>
   </div>
 )

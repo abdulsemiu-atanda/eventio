@@ -1,6 +1,6 @@
 @import '../../../assets/styles/settings.scss';
 
-.core {
+button.core {
   @include fontScale(0);
   background-color: $normalGreen;
   border-radius: 3px;

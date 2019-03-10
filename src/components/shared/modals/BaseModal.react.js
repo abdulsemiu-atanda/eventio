@@ -4,6 +4,8 @@ import classnames from 'classnames'
 import Closer from './Closer.react'
 import {MODAL_CONTEXT_TYPES} from './ModalWrapper.react'
 
+import eventioDark from '../../../assets/images/eventioDark.png'
+
 class BaseModal extends React.Component {
   componentDidMount() {
     if (this.props.showModal) {
@@ -44,6 +46,7 @@ class BaseModal extends React.Component {
             <div className='base-modal-contents-wrapper' ref='baseModalContentsWrapper'>
               <div className={classnames('base-modal-contents', contentsClassName)}>
                 <div className='base-modal-heading-closer'>
+                  <img alt='Logo' src={eventioDark} />
                   {
                     this.props.showCloser && (
                       <CloserComponent closer={this.props.modalClosed} />

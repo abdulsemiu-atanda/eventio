@@ -1,0 +1,51 @@
+@import '../../../assets/styles/settings.scss';
+
+html.core-modal-open,
+html.core-modal-open body {
+  overflow: hidden;
+  position: relative;
+  z-index: -1;
+  -webkit-overflow-scrolling: touch;
+  -webkit-transform: translateZ(-1);
+
+  .core.base-modal {
+
+    .base-modal-overlay {
+      @include fillContainer($position: fixed);
+      background: $background;
+      z-index: 3;
+    }
+  
+    .base-modal-contents-wrapper {
+      @include fillContainer($position: fixed);
+      overflow-x: hidden;
+      overflow-y: auto;
+      z-index: 3;
+      // Fixes the disappearance of Select component according to https://stackoverflow.com/questions/11258877/fixed-element-disappears-in-chrome - Kay
+      -webkit-transform: translateZ(0);
+    }
+  
+    .base-modal-contents {
+      @include undercutLastChildMargin;
+      background-color: $background;
+      overflow: visible;
+      padding: 40px;
+    }
+  
+    .base-modal-heading-closer {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+
+      .closer {
+        display: inline;
+        cursor: pointer;
+
+        img {
+          @include square(12px);
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+}

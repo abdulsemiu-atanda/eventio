@@ -18,3 +18,30 @@
 }
 
 @mixin defaultBoxShadow($boxShadowEffects: 0 0 7px 1px, $boxShadowColor: $boxShadow) { box-shadow: $boxShadowEffects $boxShadowColor; }
+
+@mixin fillContainer($bottom: 0, $left: 0, $position: absolute, $right: 0, $top: 0) {
+  bottom: $bottom;
+  left: $left;
+  position: $position;
+  right: $right;
+  top: $top;
+}
+
+@mixin undercutLastChildMargin {
+
+  & > {
+    .core,
+    aside,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    img,
+    p {
+
+      &:last-child { margin-bottom: 0; }
+    }
+  }
+}
