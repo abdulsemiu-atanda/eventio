@@ -4,7 +4,7 @@
   .dashboard-inner {
     margin: 60px auto 0;
     width: 100%;
-    max-width: 1200px;
+    max-width: 900px;
 
     .add {
       position: absolute;
@@ -25,7 +25,8 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 20px;
-    width: 100%;
+    padding: 10px;
+    width: auto;
 
     .sort {
       a {
@@ -50,6 +51,15 @@
 
         &.active { color: $normalBlack; }
       }
+    }
+  }
+
+  @media (min-width: $desktopMd) {
+    .dashboard-inner { max-width: 1200px; }
+
+    .nav {
+      padding: 0;
+      width: 100%;
     }
   }
 }

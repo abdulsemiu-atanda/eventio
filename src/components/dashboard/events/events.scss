@@ -3,6 +3,7 @@
 .events {
   display: flex;
   flex-wrap: wrap;
+  padding: 10px;
   
   &.list {
     .event {
@@ -44,9 +45,24 @@
   }
 
   .event {
-    flex-basis: 25%;
-    margin-bottom: 30px;
+    flex-basis: 100%;
+    margin-bottom: 20px;
+  }
+  
+  @media (min-width: $tabletLg) {
+    .event {
+      flex-basis: 45%;
 
-    &:not(:nth-child(3n)) { margin-right: 30px; }
+      &:not(:nth-child(3n)) { margin-right: 30px; }
+    }
+  }
+
+  @media (min-width: $desktopSm) {
+    padding: 0;
+
+    .event {
+      flex-basis: 25%;
+      margin-bottom: 30px;
+    }
   }
 }
