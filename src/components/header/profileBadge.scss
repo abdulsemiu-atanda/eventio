@@ -5,13 +5,14 @@
   font-family: 'Hind';
   justify-content: space-between;
   margin-right: 10px;
-  width: 180px;
+  width: auto;
 
   .initials {
     @include square(40px);
     align-items: center;
     border-radius: 50%;
     background-color: $normalGrey;
+    margin-right: 10px;
   }
 
   span {
@@ -29,12 +30,12 @@
 
     &:after {
       @include fillContainer($left: 50%, $top: 3px);
-      background-color: white;
+      background-color: transparent;
       border: 5px solid $normalGrey;
       border-color: $normalGrey $normalGrey transparent transparent;
       content: '';
       margin-top: 17px;
-      margin-left: 85px;
+      margin-left: 60px;
       transform-origin: 0 0;
       transform: rotate(135deg);
     }

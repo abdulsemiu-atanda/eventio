@@ -7,14 +7,10 @@
   
   &.list {
     .event {
-      align-items: baseline;
       flex: 1 1 100%;
-      flex-direction: row;
       padding: 20px;
-      max-height: 72px;
+      max-height: 200px;
       max-width: 1200px;
-
-      h5 { max-width: 115px; }
 
       img { display: none; }
 
@@ -33,12 +29,10 @@
 
       .action-items {
         order: 2;
-        width: 200px;
+        width: 100%;
       }
 
-      &:not(:last-of-type) {
-        margin: 0 0 10px 0;
-      }
+      &:not(:last-of-type) { margin: 0 0 10px 0; }
 
       &:last-of-type { margin-right: 0; }
     }
@@ -59,6 +53,18 @@
 
   @media (min-width: $desktopSm) {
     padding: 0;
+
+    &.list {
+      .event {
+        align-items: baseline;
+        flex-direction: row;
+        max-height: 72px;
+
+        h5 { max-width: 115px; }
+
+        .action-items { width: 200px; }
+      }
+    }
 
     .event {
       flex-basis: 25%;
