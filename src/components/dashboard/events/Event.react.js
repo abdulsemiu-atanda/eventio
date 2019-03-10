@@ -1,18 +1,22 @@
 import React from 'react'
 import moment from 'moment'
+import classnames from 'classnames'
 
 import Box from '../../shared/box/Box.react'
 import {Button} from '../../shared/button/Buttons.react'
 
 import profile from '../../../assets/images/profile.png'
 
-import {fullName} from '../../../helpers/tools'
+import {decodeToken, getToken} from '../../../helpers/authHelpers'
+import {fullName, eventButtonText, isAttending} from '../../../helpers/tools'
 
 import './event.scss'
 
 class Event extends React.Component {
   constructor() {
     super()
+
+    this.user = decodeToken(getToken('authToken')).user
 
     this.onClick = this.onClick.bind(this)
   }
@@ -33,7 +37,11 @@ class Event extends React.Component {
             <img alt='Profile Image' src={profile} />
             <span>{`${attendees.length} of ${capacity}`}</span>
           </div>
-          <Button className='medium' onClick={this.onClick}>Join</Button>
+          <Button
+            className={classnames('medium', {delete: isAttending(attendees, this.user)})}
+            onClick={this.onClick}>
+            {eventButtonText({attendees, owner}, this.user)}
+          </Button>
         </div>
       </Box>
     )

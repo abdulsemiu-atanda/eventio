@@ -1,15 +1,13 @@
 import jwt from 'jwt-decode'
 
+export const decodeToken = token => jwt(token)
+
 /**
  * Checks if a token has expired
  * @param {string} token - Valid jwt token
  * @returns {boolean}
  */
-export const isTokenExpired = token => {
-  const decoded = jwt(token)
-
-  return decoded.exp < Date.now() / 1000
-}
+export const isTokenExpired = token => (decodeToken(token).exp < Date.now() / 1000)
 
 export const signUpActive = ({location}) => location.pathname.includes('sign-up')
 
