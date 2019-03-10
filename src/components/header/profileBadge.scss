@@ -16,6 +16,7 @@
 
   span {
     @include fontWeightScale(1);
+    cursor: pointer;
     display: inline-block;
     margin: 8px 9px;
   }
