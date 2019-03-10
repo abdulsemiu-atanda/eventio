@@ -75,7 +75,7 @@ class Dashboard extends React.Component {
           <div className='nav'>
             <div className='sort'>
               <DashboardLinks
-                className={classnames({active: isEqual(events, this.props.events)})}
+                className={classnames({active: isEqual(events, this.props.events) && !(past || future)})}
                 text='ALL EVENTS'
                 type='all'
                 onClick={this.onClickLink}

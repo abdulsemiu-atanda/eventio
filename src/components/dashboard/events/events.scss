@@ -3,6 +3,7 @@
 .events {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
   
   &.list {
     .event {
@@ -42,9 +43,7 @@
   }
 
   .event {
-    flex-basis: 26%;
-
-
-    &:not(:last-of-type) { margin-right: 10px; }
+    flex-basis: 25%;
+    margin-bottom: 30px;
   }
 }

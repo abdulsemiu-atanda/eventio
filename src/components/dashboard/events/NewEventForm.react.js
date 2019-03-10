@@ -6,8 +6,9 @@ import Form from '../../shared/form/Form.react'
 import FormField from '../../shared/form/FormField.react'
 import {FloatingLabelInputWithError} from '../../shared/input/Input.react'
 
-import {asyncRequest as createEvent} from '../../../helpers/reduxHelpers'
+import {asyncRequest} from '../../../helpers/reduxHelpers'
 import {dateToISOString} from '../../../helpers/tools'
+import {getToken} from '../../../helpers/authHelpers'
 import {NEW_EvENT} from '../../../redux/actionTypes/eventActions'
 import validators from '../../../helpers/validators'
 
@@ -23,10 +24,24 @@ class NewEventForm extends React.Component {
   onSubmit() {
     const formData = this.refs.form.formData()
     const errors = this.refs.form.validate().filter(error => error.error)
+    
+    if (!errors.length) {
+      const payload = {
+        title: formData.title,
+        description: formData.description,
+        capacity: formData.capacity,
+        startsAt: dateToISOString(`${formData.date} ${formData.time}`)
+      }
 
-    if (!errors.length)
-      console.log({...formData, startsAt: dateToISOString(`${formData.date} ${formData.time}`)})
-    console.log(this.refs.form.validate())
+      this.props.asyncRequest({
+        endpoint: '/events',
+        ACTION_NAME: NEW_EvENT,
+        payload,
+        method: 'post',
+        token: getToken('authToken')
+      })
+      this.props.closeModal()
+    }
     console.log(this.refs.form.formData())
   }
 
@@ -60,4 +75,4 @@ class NewEventForm extends React.Component {
 
 const mapStateToProps = ({newEvent}) => ({...newEvent})
 
-export default connect(mapStateToProps, {createEvent})(NewEventForm)
+export default connect(mapStateToProps, {asyncRequest})(NewEventForm)

@@ -8,10 +8,10 @@ import {noop} from '../../../helpers/tools'
 
 import './buttons.scss'
 
-export const Button = ({children, processing, ...otherProps}) => (
+export const Button = ({children, processing, disabled, ...otherProps}) => (
   <button
     className={classnames('core', otherProps.className, {processing})}
-    onClick={processing ? noop : otherProps.onClick}
+    onClick={(processing || disabled) ? noop : otherProps.onClick}
     type='button'>
     {processing ? <Loader loading={processing} /> : children}
     </button>

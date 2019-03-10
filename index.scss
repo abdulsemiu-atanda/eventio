@@ -1,4 +1,7 @@
-html, body {
+@import './src/assets/styles/settings.scss';
+
+html, body, main {
+  background-color: $background;
   margin: 0;
   padding: 0;
   height: 100%;

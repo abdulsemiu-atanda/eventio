@@ -30,8 +30,8 @@ const eventReducers = (state = initialState, action) => {
         ...state,
         loading: false,
         events: action.data,
-        futureEvents: action.data.filter(event => moment(event.startAt).diff(moment.now()) > 0),
-        pastEvents: action.data.filter(event => moment(event.startAt).diff(moment.now()) < 0)
+        futureEvents: action.data.filter(event => moment(event.startsAt).diff(moment.now()) > 0),
+        pastEvents: action.data.filter(event => moment(event.startsAt).diff(moment.now()) < 0)
       }
     default:
       return state
