@@ -23,3 +23,14 @@ export const eventButtonText = (event, user) => {
   else
     return 'join'
 }
+
+export const eventsHasBeenUpdated = (previousValue, currentValue) => {
+   return (
+     previousValue.length > 0 &&
+     previousValue.some(event => {
+       const updatedEvent = currentValue.find(currentEvent => currentEvent.id === event.id)
+
+       return event.attendees.length !== updatedEvent.attendees.length
+      })
+   )
+}

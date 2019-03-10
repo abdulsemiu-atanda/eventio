@@ -8,7 +8,7 @@ import Events from './events/Events.react'
 import Loader from '../shared/Loader.react'
 
 import {asyncRequest as fetchEvents} from '../../helpers/reduxHelpers'
-import {isEqual} from '../../helpers/tools'
+import {isEqual, eventsHasBeenUpdated} from '../../helpers/tools'
 import {EVENTS} from '../../redux/actionTypes/eventActions'
 
 import plusIcon from '../../assets/images/plus.png'
@@ -32,7 +32,7 @@ class Dashboard extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (prevProps.events.length !== this.props.events.length)
+    if (prevProps.events.length !== this.props.events.length || eventsHasBeenUpdated(prevProps.events, this.props.events))
       this.setState({events: this.props.events, loading: this.props.loading})
   }
 
