@@ -33,7 +33,6 @@ class BaseModal extends React.Component {
   }
 
   render() {
-    console.log(this.props)
     const CloserComponent = this.props.closerComponent
     const contentsClassName = this.props.topLevelClassName ? `${this.props.topLevelClassName}-contents` : false
 
@@ -53,7 +52,7 @@ class BaseModal extends React.Component {
                     )
                   }
                 </div>
-                {this.props.children}
+                {React.cloneElement(this.props.children, {closeModal: this.props.modalClosed})}
               </div>
             </div>
           )

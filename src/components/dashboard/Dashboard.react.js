@@ -103,9 +103,7 @@ class Dashboard extends React.Component {
             <CircularButton className='add'>
               <img alt='Plus Icon' src={plusIcon} />
             </CircularButton>}>
-            <div className='new-event'>
               <NewEventForm />
-            </div>
           </Modal>
         </div>
       }
