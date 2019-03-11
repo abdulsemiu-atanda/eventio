@@ -1,5 +1,6 @@
 import React from 'react'
 import {withRouter} from 'react-router-dom'
+import PropTypes from 'prop-types'
 
 import Loader from '../shared/Loader.react'
 
@@ -22,6 +23,11 @@ class AuthGateway extends React.Component {
     if (this.state.loading) return <Loader loading={this.state.loading} />
     else return this.props.children
   }
+}
+
+AuthGateway.propTypes = {
+  history: PropTypes.shape({push: PropTypes.func}),
+  location: PropTypes.shape({pathname: PropTypes.string})
 }
 
 export default withRouter(AuthGateway)

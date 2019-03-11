@@ -11,6 +11,7 @@
 
 import React from 'react'
 import {connect} from 'react-redux'
+import PropTypes from 'prop-types'
 
 import Form from '../shared/form/Form.react'
 import FormField from '../shared/form/FormField.react'
@@ -41,7 +42,6 @@ class SignUpForm extends React.Component {
         method: 'post'
       })
     }
-    console.log(this.refs.form.formData())
   }
 
   render() {
@@ -77,6 +77,8 @@ class SignUpForm extends React.Component {
     )
   }
 }
+
+SignUpForm.propTypes = {signUp: PropTypes.func, processing: PropTypes.bool}
 
 const mapStateToProps = ({auth}) => ({loading: auth.signUpLoading, user: auth.user})
 

@@ -11,6 +11,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {withRouter} from 'react-router-dom'
+import PropTypes from 'prop-types'
 
 import Form from '../shared/form/Form.react'
 import FormField from '../shared/form/FormField.react'
@@ -59,8 +60,6 @@ class SignInForm extends React.Component {
         method: 'post'
       })
     }
-
-    console.log(this.refs.form.formData())
   }
 
   render() {
@@ -82,6 +81,12 @@ class SignInForm extends React.Component {
       </div>
     )
   }
+}
+
+SignInForm.propTypes = {
+  user: PropTypes.object,
+  history: PropTypes.object,
+  signIn: PropTypes.func
 }
 
 const mapStateToProps = ({auth}) => ({loading: auth.signInLoading, user: auth.user})
