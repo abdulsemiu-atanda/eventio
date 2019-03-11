@@ -23,7 +23,7 @@ import './index.scss'
 
 const reduxMiddlewares = () => {
   const middlewares = [thunk]
-  
+
   if (_DEV_)
     return [...middlewares, createLogger()]
   else

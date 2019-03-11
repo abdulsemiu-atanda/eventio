@@ -2,8 +2,10 @@
   "extends": "eslint:recommended",
   "parser": "babel-eslint",
   "globals": {
-    "__DEV__": true,
-    "Promise": true
+    "_DEV_": true,
+    "Promise": true,
+    "API_HOST": true,
+    "API_KEY": true
   },
   "env": {
     "jest": true,
