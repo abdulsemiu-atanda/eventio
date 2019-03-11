@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import LeftPaneLayout from './LeftPaneLayout.react'
 import {Button} from './button/Buttons.react'
@@ -19,5 +20,7 @@ const Error = ({error, notFound, refresh}) => (
     </div>
   </LeftPaneLayout>
 )
+
+Error.propTypes = {error: PropTypes.bool, notFound: PropTypes.bool, refresh: PropTypes.func}
 
 export default Error

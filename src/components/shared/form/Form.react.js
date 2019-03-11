@@ -46,7 +46,7 @@ class Form extends React.Component {
   }
 
   isValid() {
-    Object.keys(this.state.formData).length && this.state.errors.length === 0
+    return Object.keys(this.state.formData).length && this.state.errors.length === 0
   }
 
   setFormValues(key, value) {

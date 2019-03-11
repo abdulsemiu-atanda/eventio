@@ -51,7 +51,7 @@ Events.propTypes = {
   className: PropTypes.string,
   events: PropTypes.array,
   going: PropTypes.shape({id: PropTypes.string, status: PropTypes.bool}),
-  left:PropTypes.shape({id: PropTypes.string, status: PropTypes.bool})
+  left: PropTypes.shape({id: PropTypes.string, status: PropTypes.bool})
 }
 
 const mapStateToProps = ({eventActions}) => ({

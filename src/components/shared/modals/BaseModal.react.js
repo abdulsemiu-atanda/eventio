@@ -1,8 +1,8 @@
 import React from 'react'
 import classnames from 'classnames'
+import PropTypes from 'prop-types'
 
 import Closer from './Closer.react'
-import {MODAL_CONTEXT_TYPES} from './ModalWrapper.react'
 
 import eventioDark from '../../../assets/images/eventioDark.png'
 
@@ -54,6 +54,13 @@ class BaseModal extends React.Component {
 
 BaseModal.defaultProps = {closerComponent: Closer}
 
-BaseModal.contextTypes = MODAL_CONTEXT_TYPES
+BaseModal.propTypes = {
+  showModal: PropTypes.bool,
+  closerComponent: PropTypes.func,
+  topLevelClassName: PropTypes.string,
+  className: PropTypes.string,
+  showCloser: PropTypes.bool,
+  modalClosed: PropTypes.func
+}
 
 export default BaseModal

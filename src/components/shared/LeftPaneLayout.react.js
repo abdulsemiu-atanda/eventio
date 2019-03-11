@@ -17,6 +17,6 @@ const LeftPaneLayout = ({className, error, children}) => (
   </main>
 )
 
-LeftPaneLayout.propTypes = {className: PropTypes.string}
+LeftPaneLayout.propTypes = {className: PropTypes.string, error: PropTypes.bool}
 
 export default LeftPaneLayout

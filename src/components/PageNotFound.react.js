@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import Error from './shared/Error.react'
 
@@ -17,5 +18,7 @@ class PageNotFound extends React.Component {
     return <Error notFound refresh={this.refresh} />
   }
 }
+
+PageNotFound.propTypes = {history: PropTypes.shape({push: PropTypes.func})}
 
 export default PageNotFound

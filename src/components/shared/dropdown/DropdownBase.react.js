@@ -1,9 +1,10 @@
 import React from 'react'
 import classnames from 'classnames'
+import PropTypes from 'prop-types'
 
 import './dropdownBase.scss'
 
-const DropdownBase = ({className, children, show, launcher, ...otherProps}) => {
+const DropdownBase = ({children, show, launcher, ...otherProps}) => {
   const Launcher = launcher
 
   return (
@@ -13,5 +14,7 @@ const DropdownBase = ({className, children, show, launcher, ...otherProps}) => {
     </div>
   )
 }
+
+DropdownBase.propTypes = {show: PropTypes.bool, launcher: PropTypes.func}
 
 export default DropdownBase

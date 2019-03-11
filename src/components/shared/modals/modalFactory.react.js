@@ -19,7 +19,7 @@ const modalFactory = (ModalComponent, displayName, topLevelClassName) => {
 
   NewModalType.displayName = displayName
 
-  NewModalType.propTypes = {launcher: PropTypes.node}
+  NewModalType.propTypes = {launcher: PropTypes.node, className: PropTypes.string}
 
   return modalWrapper(NewModalType)
 }

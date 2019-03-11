@@ -17,7 +17,7 @@ export const Button = ({children, processing, disabled, ...otherProps}) => (
   </button>
 )
 
-Button.propTypes = {processing: PropTypes.bool}
+Button.propTypes = {processing: PropTypes.bool, disabled: PropTypes.bool}
 
 export const CircularButton = ({children, ...otherProps}) => (
   <button

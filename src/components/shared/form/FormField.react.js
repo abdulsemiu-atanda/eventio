@@ -1,7 +1,7 @@
 /**
  * @class FormField
  * @desc
- * Handles updating formData with input values, it should be used in conjuction wuth Form
+ * Handles updating formData with input values,it should be used in conjuction wuth Form
  * @property {Array} errors - Form errors
  * @property {HTMLNode} children - Input element
  * @property {Function} onChange - Handles value change in input
@@ -45,6 +45,11 @@ class FormField extends React.Component {
   }
 }
 
-FormField.propTypes = {onChange: PropTypes.func}
+FormField.propTypes = {
+  onChange: PropTypes.func,
+  setFormValues: PropTypes.func,
+  errors: PropTypes.array,
+  name: PropTypes.string
+}
 
 export default FormField

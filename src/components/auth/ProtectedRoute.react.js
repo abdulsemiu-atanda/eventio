@@ -11,6 +11,6 @@ const ProtectedRoute = ({component: Component, ...otherProps}) => (
   />
 )
 
-ProtectedRoute.propTypes = {component: PropTypes.instanceOf(React.Component)}
+ProtectedRoute.propTypes = {component: PropTypes.func}
 
 export default ProtectedRoute

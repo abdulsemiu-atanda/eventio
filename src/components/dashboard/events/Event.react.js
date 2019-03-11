@@ -63,7 +63,7 @@ Event.propTypes = {
   owner: PropTypes.object,
   id: PropTypes.string,
   onClick: PropTypes.func,
-  capacity: PropTypes.string,
+  capacity: PropTypes.number,
   description: PropTypes.string,
   startsAt: PropTypes.string,
   title: PropTypes.string
