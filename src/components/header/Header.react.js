@@ -13,7 +13,7 @@ import './header.scss'
 
 const Header = ({location}) => (
   <header>
-    <img alt='Eventio Logo' src={isLoggedIn() ? eventioDark : eventioLogo} />
+    <img alt='Eventio Logo' src={(isLoggedIn() || outerWidth < 900) ? eventioDark : eventioLogo} />
     {isLoggedIn() ? (
       <ProfileBadge />
     ) : (

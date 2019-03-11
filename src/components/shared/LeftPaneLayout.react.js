@@ -10,6 +10,8 @@ const LeftPaneLayout = ({className, error, children}) => (
       <div className='overlay'>
         <div className='quote'>
           <p>“Great, Kid. Don't get cocky.”</p>
+          <div className='divider' />
+          <p className='author'>Han Solo</p>
         </div>
       </div>
     </div>
