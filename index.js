@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import {BrowserRouter as Router, Redirect, Route, Switch} from 'react-router-dom'
+import {HashRouter as Router, Route, Switch} from 'react-router-dom'
 import {Provider} from 'react-redux'
 import {applyMiddleware, createStore} from 'redux'
 import {createLogger} from 'redux-logger'
@@ -40,11 +40,11 @@ const Root = () => (
         <ErrorBoundary>
           <AuthGateway>
             <Switch>
-              <ProtectedRoute path='/dashboard' component={Dashboard} />
+              <Route exact path='/' component={SignIn} />
               <Route path='/sign-in' component={SignIn} />
               <Route path='/sign-up' component={SignUp} />
-              <Route path='/style-guide' component={StyleGuide} />
-              <Redirect from='/' to='/sign-in' />
+              <Route exact path='/style-guide' component={StyleGuide} />
+              <ProtectedRoute path='/dashboard' component={Dashboard} />
               <Route component={PageNoFound} />
             </Switch>
           </AuthGateway>
