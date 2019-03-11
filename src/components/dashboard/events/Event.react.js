@@ -1,6 +1,7 @@
 import React from 'react'
 import moment from 'moment'
 import classnames from 'classnames'
+import PropTypes from 'prop-types'
 
 import Box from '../../shared/box/Box.react'
 import {Button} from '../../shared/button/Buttons.react'
@@ -29,7 +30,7 @@ class Event extends React.Component {
   }
 
   render() {
-    const {attendees, capacity, description, id, startsAt, owner, title} = this.props
+    const {attendees, capacity, description, startsAt, owner, title} = this.props
 
     return (
       <Box className='event'>
@@ -55,6 +56,17 @@ class Event extends React.Component {
       </Box>
     )
   }
+}
+
+Event.propTypes = {
+  attendees: PropTypes.array,
+  owner: PropTypes.object,
+  id: PropTypes.string,
+  onClick: PropTypes.func,
+  capacity: PropTypes.string,
+  description: PropTypes.string,
+  startsAt: PropTypes.string,
+  title: PropTypes.string
 }
 
 export default Event

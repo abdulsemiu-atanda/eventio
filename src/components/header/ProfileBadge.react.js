@@ -1,5 +1,6 @@
 import React from 'react'
 import {withRouter} from 'react-router-dom'
+import PropTypes from 'prop-types'
 
 import DropdownBase from '../shared/dropdown/DropdownBase.react'
 import {getToken, decodeToken, removeToken} from '../../helpers/authHelpers'
@@ -46,5 +47,7 @@ class ProfileBadge extends React.Component {
     )
   }
 }
+
+ProfileBadge.propTypes = {history: PropTypes.shape({push: PropTypes.func})}
 
 export default withRouter(ProfileBadge)

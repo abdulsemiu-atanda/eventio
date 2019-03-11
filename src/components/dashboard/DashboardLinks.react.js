@@ -1,5 +1,6 @@
 import React from 'react'
 import classnames from 'classnames'
+import PropTypes from 'prop-types'
 
 class DashboarLinks extends React.Component {
   constructor() {
@@ -19,6 +20,13 @@ class DashboarLinks extends React.Component {
       </a>
     )
   }
+}
+
+DashboarLinks.propTypes = {
+  className: PropTypes.string,
+  onClick: PropTypes.func,
+  text: PropTypes.string,
+  type: PropTypes.string
 }
 
 export default DashboarLinks

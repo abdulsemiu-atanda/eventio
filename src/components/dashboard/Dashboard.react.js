@@ -1,6 +1,7 @@
 import React from 'react'
 import classnames from 'classnames'
 import {connect} from 'react-redux'
+import PropTypes from 'prop-types'
 
 import {Modal} from '../shared/modals/Modals.react'
 import {CircularButton} from '../shared/button/Buttons.react'
@@ -124,6 +125,13 @@ class Dashboard extends React.Component {
       </main>
     )
   }
+}
+
+Dashboard.propTypes = {
+  events: PropTypes.array,
+  fetchEvents: PropTypes.func,
+  futureEvents: PropTypes.array,
+  pastEvents: PropTypes.array
 }
 
 const mapStateToProps = ({events}) => ({...events})

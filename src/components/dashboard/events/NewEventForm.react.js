@@ -1,5 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import PropTypes from 'prop-types'
 
 import {Button} from '../../shared/button/Buttons.react'
 import Form from '../../shared/form/Form.react'
@@ -42,7 +43,6 @@ class NewEventForm extends React.Component {
       })
       this.props.closeModal()
     }
-    console.log(this.refs.form.formData())
   }
 
   render() {
@@ -74,6 +74,8 @@ class NewEventForm extends React.Component {
     )
   }
 }
+
+NewEventForm.propTypes = {asyncRequest: PropTypes.func, closeModal: PropTypes.func}
 
 const mapStateToProps = ({newEvent}) => ({...newEvent})
 

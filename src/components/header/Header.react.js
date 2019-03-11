@@ -1,5 +1,6 @@
 import React from 'react'
 import {Link, withRouter} from 'react-router-dom'
+import PropTypes from 'prop-types'
 
 import ProfileBadge from './ProfileBadge.react'
 
@@ -25,5 +26,7 @@ const Header = ({location}) => (
     )}
   </header>
 )
+
+Header.propTypes = {location: PropTypes.object}
 
 export default withRouter(Header)

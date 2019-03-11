@@ -1,6 +1,7 @@
 import React from 'react'
 import classnames from 'classnames'
 import {connect} from 'react-redux'
+import PropTypes from 'prop-types'
 
 import Event from './Event.react'
 
@@ -43,6 +44,14 @@ class Events extends React.Component {
       </div>
     )
   }
+}
+
+Events.propTypes = {
+  asyncRequest: PropTypes.func,
+  className: PropTypes.string,
+  events: PropTypes.array,
+  going: PropTypes.shape({id: PropTypes.string, status: PropTypes.bool}),
+  left:PropTypes.shape({id: PropTypes.string, status: PropTypes.bool})
 }
 
 const mapStateToProps = ({eventActions}) => ({
