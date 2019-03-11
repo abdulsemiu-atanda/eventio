@@ -14,7 +14,11 @@ const inittialState = {
 const authReducer = (state = inittialState, action) => {
   switch (action.type) {
     case asyncActionNames(SIGN_IN).loading:
-      return {...state, signInLoading: action.data}
+      return {
+        ...state,
+        signInLoading: action.data,
+        error: {...state.error, signInError: {status: false, message: ''}}
+      }
     case asyncActionNames(SIGN_IN).failure:
       return {
         ...state,
@@ -28,9 +32,18 @@ const authReducer = (state = inittialState, action) => {
         }
       }
     case asyncActionNames(SIGN_IN).success:
-      return {...state, signInLoading: false, user: {...state.user, ...action.data}}
+      return {
+        ...state,
+        signInLoading: false,
+        error: {...state.error, signInError: {status: false, message: ''}},
+        user: {...state.user, ...action.data}
+      }
     case asyncActionNames(SIGN_UP).loading:
-      return {...state, signUpLoading: action.data}
+      return {
+        ...state,
+        signUpLoading: action.data,
+        error: {...state.error, signUpError: {status: false, message: ''}}
+      }
     case asyncActionNames(SIGN_UP).failure:
       return {
         ...state,
@@ -44,7 +57,12 @@ const authReducer = (state = inittialState, action) => {
         }
       }
     case asyncActionNames(SIGN_UP).success:
-      return {...state, signUpLoading: false, user: {...state.user, ...action.data}}
+      return {
+        ...state,
+        signUpLoading: false,
+        error: {...state.error, signUpError: {status: false, message: ''}},
+        user: {...state.user, ...action.data}
+      }
     default:
       return state
   }

@@ -66,6 +66,9 @@ class SignInForm extends React.Component {
     return (
       <div className='sign-in-form'>
         <h4>Sign in into Eventio.</h4>
+        {this.props.error.status && (
+          <p className='sign-in-error'>Oops! that email and password combination is not valid.</p>
+        )}
         <p>Enter your details below.</p>
         <Form ref='form'>
           <FormField name='email' validator={validators.emailValidator}>
@@ -84,12 +87,17 @@ class SignInForm extends React.Component {
 }
 
 SignInForm.propTypes = {
+  error: PropTypes.shape({status: PropTypes.bool}),
   user: PropTypes.object,
   history: PropTypes.object,
   signIn: PropTypes.func
 }
 
-const mapStateToProps = ({auth}) => ({loading: auth.signInLoading, user: auth.user})
+const mapStateToProps = ({auth}) => ({
+  loading: auth.signInLoading,
+  user: auth.user,
+  error: auth.error.signInError
+})
 
 export default withRouter(
   connect(
