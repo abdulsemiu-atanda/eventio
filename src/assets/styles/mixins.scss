@@ -1,5 +1,6 @@
 @mixin formLayout($heading: '.heading', $text: '.instructions') {
   font-family: 'Hind';
+  width: 100%;
 
   #{$heading} { @include fontScale(6); }
 
@@ -9,6 +10,21 @@
     color: $link;
     margin-top: 0;
     margin-bottom: 40px;
+  }
+
+  #{$heading}, #{$text} { text-align: center; }
+
+  button {
+    display: block;
+    margin: 0 auto;
+  }
+
+  @media (min-width: $desktopMd) {
+    width: 480px;
+
+    #{$heading}, #{$text} { text-align: left; }
+
+    button { display: inline; }
   }
 }
 

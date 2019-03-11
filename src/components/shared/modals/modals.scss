@@ -29,13 +29,13 @@ html.core-modal-open body {
       @include undercutLastChildMargin;
       background-color: $background;
       overflow: visible;
-      padding: 40px;
     }
   
     .base-modal-heading-closer {
       position: relative;
       display: flex;
       justify-content: space-between;
+      padding: 20px;
 
       .closer {
         display: inline;
@@ -47,5 +47,13 @@ html.core-modal-open body {
         }
       }
     }
+
+    @media (min-width: $tabletSm) {
+
+      .base-modal-heading-closer { padding: 0; }
+
+      .base-modal-contents { padding: 40px; }
+    }
   }
+
 }

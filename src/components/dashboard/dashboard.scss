@@ -7,17 +7,16 @@
     max-width: 900px;
 
     .add {
-      position: absolute;
-      bottom: 40px;
-      right: 40px;
+      position: sticky;
+      left: 92vw;
     }
 
     .new-event-form {
       background-color: $white;
+      padding: 10px;
       height: 650px;
       margin: 0 auto;
-      padding: 40px;
-      width: 480px;
+      width: 95%;
     }
   }
 
@@ -54,12 +53,16 @@
     }
   }
 
-  @media (min-width: $desktopMd) {
-    .dashboard-inner { max-width: 1200px; }
+  @media (min-width: $tabletSm) {
+    .dashboard-inner {
+      max-width: 1200px;
 
-    .nav {
-      padding: 0;
-      width: 100%;
+      .new-event-form {
+        padding: 40px;
+        width: 480px;
+      }
+
+      .add { bottom: 40px; }
     }
   }
 }

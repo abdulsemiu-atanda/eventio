@@ -43,16 +43,18 @@
     margin-bottom: 20px;
   }
   
-  @media (min-width: $tabletLg) {
-    .event {
-      flex-basis: 45%;
+  @media (min-width: $tabletSm) {
+    padding: 40px;
+    justify-content: space-between;
 
-      &:not(:nth-child(3n)) { margin-right: 30px; }
+    .event {
+      flex-basis: 35%;
     }
   }
 
   @media (min-width: $desktopSm) {
     padding: 0;
+    justify-content: initial;
 
     &.list {
       .event {
@@ -67,8 +69,20 @@
     }
 
     .event {
-      flex-basis: 25%;
+      flex-basis: 22%;
       margin-bottom: 30px;
+
+      &:nth-child(1n) { margin-left: 12px; }
+
+      &:not(:nth-child(3n)) { margin-right: 30px; }
+    }
+  }
+
+  @media (min-width: $desktopMd) {
+    .event {
+      flex-basis: 25%;
+
+      &:nth-child(1n) { margin-left: 0; }
     }
   }
 }

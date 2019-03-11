@@ -3,5 +3,9 @@
 div.error {
   @include formLayout('h4', 'p');
   height: 433px;
-  width: 700px;
+  padding: 40px;
+
+  @media (min-width: $desktopSm) {
+    padding: 0;
+  }
 }
