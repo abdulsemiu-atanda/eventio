@@ -1,0 +1,4 @@
+module.exports = {
+  API_KEY: "Ask someone",
+  API_HOST: "Ask someone"
+}
