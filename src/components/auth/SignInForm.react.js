@@ -32,7 +32,9 @@ class SignInForm extends React.Component {
     this.onSubmit = this.onSubmit.bind(this)
   }
 
-  componentDidMount() { removeToken(['authToken', 'refresh-token']) }
+  componentDidMount() {
+    removeToken(['authToken', 'refresh-token'])
+  }
 
   static getDerivedStateFromProps(nextProps) {
     const {user} = nextProps
@@ -50,14 +52,12 @@ class SignInForm extends React.Component {
     const errors = this.refs.form.validate().filter(error => error.error)
 
     if (!errors.length) {
-      this.props.signIn(
-        {
-          endpoint: '/auth/native',
-          ACTION_NAME: SIGN_IN,
-          payload: this.refs.form.formData(),
-          method: 'post'
-        }
-      )
+      this.props.signIn({
+        endpoint: '/auth/native',
+        ACTION_NAME: SIGN_IN,
+        payload: this.refs.form.formData(),
+        method: 'post'
+      })
     }
 
     console.log(this.refs.form.formData())
@@ -75,10 +75,7 @@ class SignInForm extends React.Component {
           <FormField name='password' validator={validators.passwordValidator}>
             <FloatingLabelInputWithError name='password' label='Password' type='password' />
           </FormField>
-          <Button
-            className='big'
-            processing={this.props.loading}
-            onClick={this.onSubmit}>
+          <Button className='big' processing={this.props.loading} onClick={this.onSubmit}>
             Sign In
           </Button>
         </Form>
@@ -89,4 +86,9 @@ class SignInForm extends React.Component {
 
 const mapStateToProps = ({auth}) => ({loading: auth.signInLoading, user: auth.user})
 
-export default withRouter(connect(mapStateToProps, {signIn})(SignInForm))
+export default withRouter(
+  connect(
+    mapStateToProps,
+    {signIn}
+  )(SignInForm)
+)

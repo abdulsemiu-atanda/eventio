@@ -12,7 +12,7 @@ const inittialState = {
 }
 
 const authReducer = (state = inittialState, action) => {
-  switch(action.type) {
+  switch (action.type) {
     case asyncActionNames(SIGN_IN).loading:
       return {...state, signInLoading: action.data}
     case asyncActionNames(SIGN_IN).failure:

@@ -24,7 +24,7 @@ class NewEventForm extends React.Component {
   onSubmit() {
     const formData = this.refs.form.formData()
     const errors = this.refs.form.validate().filter(error => error.error)
-    
+
     if (!errors.length) {
       const payload = {
         title: formData.title,
@@ -66,7 +66,9 @@ class NewEventForm extends React.Component {
           <FormField name='capacity' validator={validators.numberValidator}>
             <FloatingLabelInputWithError name='capacity' type='number' placeholder='Capacity' />
           </FormField>
-          <Button className='big' onClick={this.onSubmit}>Create Event</Button>
+          <Button className='big' onClick={this.onSubmit}>
+            Create Event
+          </Button>
         </Form>
       </div>
     )
@@ -75,4 +77,7 @@ class NewEventForm extends React.Component {
 
 const mapStateToProps = ({newEvent}) => ({...newEvent})
 
-export default connect(mapStateToProps, {asyncRequest})(NewEventForm)
+export default connect(
+  mapStateToProps,
+  {asyncRequest}
+)(NewEventForm)

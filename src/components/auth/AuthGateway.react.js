@@ -13,17 +13,14 @@ class AuthGateway extends React.Component {
   }
 
   componentDidMount() {
-    if (isLoggedIn() && this.props.location.pathname === '/')
-      this.props.history.push('/dashboard')
+    if (isLoggedIn() && this.props.location.pathname === '/') this.props.history.push('/dashboard')
 
     this.setState({loading: false})
   }
 
   render() {
-    if (this.state.loading)
-      return <Loader loading={this.state.loading} />
-    else
-      return this.props.children
+    if (this.state.loading) return <Loader loading={this.state.loading} />
+    else return this.props.children
   }
 }
 

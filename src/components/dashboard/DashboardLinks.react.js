@@ -8,10 +8,16 @@ class DashboarLinks extends React.Component {
     this.onClick = this.onClick.bind(this)
   }
 
-  onClick() { this.props.onClick(this.props.type) }
+  onClick() {
+    this.props.onClick(this.props.type)
+  }
 
   render() {
-    return <a className={classnames(this.props.className)} onClick={this.onClick}>{this.props.text}</a>
+    return (
+      <a className={classnames(this.props.className)} onClick={this.onClick}>
+        {this.props.text}
+      </a>
+    )
   }
 }
 

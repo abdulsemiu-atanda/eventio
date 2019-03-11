@@ -12,7 +12,7 @@ const initialState = {
 }
 
 const eventReducers = (state = initialState, action) => {
-  switch(action.type) {
+  switch (action.type) {
     case asyncActionNames(EVENTS).loading:
       return {...state, loading: action.data}
     case asyncActionNames(EVENTS).failure:

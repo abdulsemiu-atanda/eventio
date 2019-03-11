@@ -27,8 +27,7 @@ class FormField extends React.Component {
   onChange(event) {
     this.props.setFormValues(event.target.name, event.target.value)
 
-    if (this.props.onChange)
-      this.props.onChange()
+    if (this.props.onChange) this.props.onChange()
   }
 
   error() {

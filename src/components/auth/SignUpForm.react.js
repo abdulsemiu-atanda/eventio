@@ -34,14 +34,12 @@ class SignUpForm extends React.Component {
     const errors = this.refs.form.validate().filter(error => error.error)
 
     if (!errors.length) {
-      this.props.signUp(
-        {
-          endpoint: '/users',
-          ACTION_NAME: SIGN_UP,
-          payload: this.refs.form.formData(),
-          method: 'post'
-        }
-      )
+      this.props.signUp({
+        endpoint: '/users',
+        ACTION_NAME: SIGN_UP,
+        payload: this.refs.form.formData(),
+        method: 'post'
+      })
     }
     console.log(this.refs.form.formData())
   }
@@ -65,12 +63,13 @@ class SignUpForm extends React.Component {
             <FloatingLabelInputWithError name='password' label='Password' type='password' />
           </FormField>
           <FormField name='repeat-password' validator={validators.confirmPasswordValidator}>
-            <FloatingLabelInputWithError name='repeat-password' label='Repeat Password' type='password' />
+            <FloatingLabelInputWithError
+              name='repeat-password'
+              label='Repeat Password'
+              type='password'
+            />
           </FormField>
-          <Button
-            className='big'
-            processing={this.props.processing}
-            onClick={this.onSubmit}>
+          <Button className='big' processing={this.props.processing} onClick={this.onSubmit}>
             SIGN UP
           </Button>
         </Form>
@@ -81,4 +80,7 @@ class SignUpForm extends React.Component {
 
 const mapStateToProps = ({auth}) => ({loading: auth.signUpLoading, user: auth.user})
 
-export default connect(mapStateToProps, {signUp})(SignUpForm)
+export default connect(
+  mapStateToProps,
+  {signUp}
+)(SignUpForm)

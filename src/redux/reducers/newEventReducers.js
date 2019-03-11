@@ -8,11 +8,15 @@ const initialState = {
 }
 
 const newEventReducers = (state = initialState, action) => {
-  switch(action.type) {
+  switch (action.type) {
     case asyncActionNames(NEW_EvENT).loading:
       return {...state, creating: action.data}
     case asyncActionNames(NEW_EvENT).failure:
-      return {...state, creating: false, error: {status: action.data.status, message: action.data.message}}
+      return {
+        ...state,
+        creating: false,
+        error: {status: action.data.status, message: action.data.message}
+      }
     case asyncActionNames(NEW_EvENT).success:
       return {...state, creating: false, error: {}, event: action.data}
     default:

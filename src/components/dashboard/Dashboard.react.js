@@ -34,24 +34,23 @@ class Dashboard extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (prevProps.events.length !== this.props.events.length || eventsHasBeenUpdated(prevProps.events, this.props.events))
+    if (
+      prevProps.events.length !== this.props.events.length ||
+      eventsHasBeenUpdated(prevProps.events, this.props.events)
+    )
       this.setState({events: this.props.events, loading: this.props.loading})
   }
 
   onClickLink(type) {
     const reset = {past: false, future: false}
 
-    if (type === 'all')
-      this.setState({events: this.props.events, ...reset})
-    else if (type === 'past')
-      this.setState({events: this.props.pastEvents, ...reset, past: true})
-    else
-      this.setState({events: this.props.futureEvents, ...reset, future: true})
+    if (type === 'all') this.setState({events: this.props.events, ...reset})
+    else if (type === 'past') this.setState({events: this.props.pastEvents, ...reset, past: true})
+    else this.setState({events: this.props.futureEvents, ...reset, future: true})
   }
 
   componentDidMount() {
-    if (this.props.events.length)
-      this.setState({loading: false})
+    if (this.props.events.length) this.setState({loading: false})
 
     this.props.fetchEvents({
       endpoint: '/events',
@@ -60,7 +59,9 @@ class Dashboard extends React.Component {
     })
   }
 
-  toggleViewMode() { this.setState({grid: !this.state.grid}) }
+  toggleViewMode() {
+    this.setState({grid: !this.state.grid})
+  }
 
   render() {
     const {events, loading, past, future, grid} = this.state
@@ -68,45 +69,58 @@ class Dashboard extends React.Component {
 
     return (
       <main className='dashboard'>
-      {
-        loading ?
-        <Loader className='big' loading={loading} /> :
-        <div className='dashboard-inner'>
-          <div className='nav'>
-            <div className='sort'>
-              <DashboardLinks
-                className={classnames({active: isEqual(events, this.props.events) && !(past || future)})}
-                text='ALL EVENTS'
-                type='all'
-                onClick={this.onClickLink}
-              />
-              <DashboardLinks
-                className={classnames({active: isEqual(events, futureEvents) && future})}
-                text='FUTURE EVENTS'
-                type='future'
-                onClick={this.onClickLink}
-              />
-              <DashboardLinks
-                className={classnames({active: isEqual(events, pastEvents) && past})}
-                text='PAST EVENTS'
-                type='past'
-                onClick={this.onClickLink}
-              />
+        {loading ? (
+          <Loader className='big' loading={loading} />
+        ) : (
+          <div className='dashboard-inner'>
+            <div className='nav'>
+              <div className='sort'>
+                <DashboardLinks
+                  className={classnames({
+                    active: isEqual(events, this.props.events) && !(past || future)
+                  })}
+                  text='ALL EVENTS'
+                  type='all'
+                  onClick={this.onClickLink}
+                />
+                <DashboardLinks
+                  className={classnames({active: isEqual(events, futureEvents) && future})}
+                  text='FUTURE EVENTS'
+                  type='future'
+                  onClick={this.onClickLink}
+                />
+                <DashboardLinks
+                  className={classnames({active: isEqual(events, pastEvents) && past})}
+                  text='PAST EVENTS'
+                  type='past'
+                  onClick={this.onClickLink}
+                />
+              </div>
+              <div className='view-modes'>
+                <i
+                  className={classnames('fa fa-th', {active: grid})}
+                  aria-hidden='true'
+                  onClick={this.toggleViewMode}
+                />
+                <i
+                  className={classnames('fa fa-bars', {active: !grid})}
+                  aria-hidden='true'
+                  onClick={this.toggleViewMode}
+                />
+              </div>
             </div>
-            <div className='view-modes'>
-              <i className={classnames('fa fa-th', {active: grid})} aria-hidden="true" onClick={this.toggleViewMode}></i>
-              <i className={classnames('fa fa-bars', {active: !grid})} aria-hidden="true" onClick={this.toggleViewMode}></i>
-            </div>
-          </div>
-          <Events className={classnames({list: !grid})} events={this.state.events} />
-          <Modal showCloser launcher={
-            <CircularButton className='add'>
-              <img alt='Plus Icon' src={plusIcon} />
-            </CircularButton>}>
+            <Events className={classnames({list: !grid})} events={this.state.events} />
+            <Modal
+              showCloser
+              launcher={
+                <CircularButton className='add'>
+                  <img alt='Plus Icon' src={plusIcon} />
+                </CircularButton>
+              }>
               <NewEventForm />
-          </Modal>
-        </div>
-      }
+            </Modal>
+          </div>
+        )}
       </main>
     )
   }
@@ -114,4 +128,7 @@ class Dashboard extends React.Component {
 
 const mapStateToProps = ({events}) => ({...events})
 
-export default connect(mapStateToProps, {fetchEvents})(Dashboard)
+export default connect(
+  mapStateToProps,
+  {fetchEvents}
+)(Dashboard)

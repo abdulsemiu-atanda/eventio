@@ -18,7 +18,9 @@ class ProfileBadge extends React.Component {
     this.toggleBadgeDisplay = this.toggleBadgeDisplay.bind(this)
   }
 
-  toggleBadgeDisplay() { this.setState({showBadge: !this.state.showBadge})}
+  toggleBadgeDisplay() {
+    this.setState({showBadge: !this.state.showBadge})
+  }
 
   logOut() {
     removeToken(['authToken', 'refresh-token'])
@@ -31,7 +33,13 @@ class ProfileBadge extends React.Component {
         <div className='initials'>
           <span>{constructInitials(this.user)}</span>
         </div>
-        <DropdownBase show={this.state.showBadge} launcher={() => (<div onClick={this.toggleBadgeDisplay} className='name'>{fullName(this.user)}</div>)}>
+        <DropdownBase
+          show={this.state.showBadge}
+          launcher={() => (
+            <div onClick={this.toggleBadgeDisplay} className='name'>
+              {fullName(this.user)}
+            </div>
+          )}>
           <span onClick={this.logOut}>Log out</span>
         </DropdownBase>
       </div>

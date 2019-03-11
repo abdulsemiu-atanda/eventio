@@ -11,17 +11,25 @@ const initialState = {
 }
 
 const eventActionsReducers = (state = initialState, action) => {
-  switch(action.type) {
+  switch (action.type) {
     case asyncActionNames(LEAVE_EVENT).loading:
       return {...state, leaving: action.data}
     case asyncActionNames(LEAVE_EVENT).failure:
-      return {...state, leaving: false, leavingError: {status: action.data.status, message: action.data.error}}
+      return {
+        ...state,
+        leaving: false,
+        leavingError: {status: action.data.status, message: action.data.error}
+      }
     case asyncActionNames(LEAVE_EVENT).success:
       return {...state, leaving: false, left: {id: action.data.id, status: true}}
     case asyncActionNames(ATTEND_EVENT).loading:
       return {...state, attending: action.data}
     case asyncActionNames(ATTEND_EVENT).failure:
-      return {...state, attending: false, attendingError: {status: action.data.status, message: action.data.error}}
+      return {
+        ...state,
+        attending: false,
+        attendingError: {status: action.data.status, message: action.data.error}
+      }
     case asyncActionNames(ATTEND_EVENT).success:
       return {...state, attending: false, going: {id: action.data.id, status: true}}
     default:

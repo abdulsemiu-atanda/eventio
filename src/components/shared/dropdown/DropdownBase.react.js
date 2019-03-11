@@ -9,9 +9,7 @@ const DropdownBase = ({className, children, show, launcher, ...otherProps}) => {
   return (
     <div className='dropdown-base'>
       <Launcher {...otherProps} />
-      <div className={classnames('contents', {active: show})}>
-        {children}
-      </div>
+      <div className={classnames('contents', {active: show})}>{children}</div>
     </div>
   )
 }

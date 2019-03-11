@@ -43,7 +43,10 @@ class Event extends React.Component {
             <span>{`${attendees.length} of ${capacity}`}</span>
           </div>
           <Button
-            className={classnames('medium', {delete: isAttending(attendees, this.user), edit: isEventOwner(owner, this.user)})}
+            className={classnames('medium', {
+              delete: isAttending(attendees, this.user),
+              edit: isEventOwner(owner, this.user)
+            })}
             disabled={isEventOwner(owner, this.user)}
             onClick={this.onClick}>
             {eventButtonText({attendees, owner}, this.user)}

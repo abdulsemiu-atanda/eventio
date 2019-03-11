@@ -11,10 +11,10 @@ import './buttons.scss'
 export const Button = ({children, processing, disabled, ...otherProps}) => (
   <button
     className={classnames('core', otherProps.className, {processing})}
-    onClick={(processing || disabled) ? noop : otherProps.onClick}
+    onClick={processing || disabled ? noop : otherProps.onClick}
     type='button'>
     {processing ? <Loader loading={processing} /> : children}
-    </button>
+  </button>
 )
 
 Button.propTypes = {processing: PropTypes.bool}

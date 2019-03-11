@@ -5,12 +5,7 @@ import PropTypes from 'prop-types'
 import './input.scss'
 
 export const Input = React.forwardRef(({className, ...otherProps}, ref) => (
-  <input
-    ref={ref}
-    className={classnames('base', className)}
-    type='text'
-    {...otherProps}
-  />
+  <input ref={ref} className={classnames('base', className)} type='text' {...otherProps} />
 ))
 
 Input.propTypes = {className: PropTypes.string}
@@ -22,14 +17,25 @@ export class FloatingLabelInput extends React.Component {
     this.onClickLabel = this.onClickLabel.bind(this)
   }
 
-  onClickLabel() { this.refs.input.focus() }
+  onClickLabel() {
+    this.refs.input.focus()
+  }
 
   render() {
     const {className, label, ...otherProps} = this.props
     return (
       <div className='floating-label'>
-        <Input ref='input' className={classnames('input-control', className)} {...otherProps} required />
-        {label && <label className='placeholder' onClick={this.onClickLabel}>{label}</label>}
+        <Input
+          ref='input'
+          className={classnames('input-control', className)}
+          {...otherProps}
+          required
+        />
+        {label && (
+          <label className='placeholder' onClick={this.onClickLabel}>
+            {label}
+          </label>
+        )}
       </div>
     )
   }

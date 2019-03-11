@@ -4,9 +4,7 @@ import classnames from 'classnames'
 import './box.scss'
 
 const Box = ({children, className}) => (
-  <div className={classnames('box', className)}>
-    {children}
-  </div>
+  <div className={classnames('box', className)}>{children}</div>
 )
 
 export default Box

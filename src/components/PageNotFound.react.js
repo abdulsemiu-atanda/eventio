@@ -9,7 +9,9 @@ class PageNotFound extends React.Component {
     this.refresh = this.refresh.bind(this)
   }
 
-  refresh() { this.props.history.push('/') }
+  refresh() {
+    this.props.history.push('/')
+  }
 
   render() {
     return <Error notFound refresh={this.refresh} />

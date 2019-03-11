@@ -21,21 +21,25 @@ const modalWrap = Modal => {
       this.modalClosed = this.modalClosed.bind(this)
     }
 
-    closeModal() { this.setState({showModal: false}) }
+    closeModal() {
+      this.setState({showModal: false})
+    }
 
-    launchModal() { this.setState({showModal: true}) }
+    launchModal() {
+      this.setState({showModal: true})
+    }
 
     modalClosed(event) {
-      if (event && event.preventDefault)
-        event.preventDefault()
+      if (event && event.preventDefault) event.preventDefault()
       this.closeModal()
     }
 
     render() {
-      return React.cloneElement(
-        <Modal showModal={this.state.showModal} {...this.props} />,
-        {closeModal: this.closeModal, launchModal: this.launchModal, modalClosed: this.modalClosed}
-      )
+      return React.cloneElement(<Modal showModal={this.state.showModal} {...this.props} />, {
+        closeModal: this.closeModal,
+        launchModal: this.launchModal,
+        modalClosed: this.modalClosed
+      })
     }
   }
 

@@ -8,8 +8,7 @@ import plusIcon from '../../assets/images/plus.png'
 
 import './styleGuide.scss'
 
-const StyleGuide = () => {
-  return (
+const StyleGuide = () => (
   <div className='style-guide'>
     <h2>StyleGuide</h2>
     <div className='buttons'>
@@ -56,10 +55,16 @@ const StyleGuide = () => {
     </div>
     <div className='modals'>
       <h3>Modal</h3>
-      <Modal showCloser launcher={<CircularButton><img alt='Plus Icon' src={plusIcon} /></CircularButton>} />
+      <Modal
+        showCloser
+        launcher={
+          <CircularButton>
+            <img alt='Plus Icon' src={plusIcon} />
+          </CircularButton>
+        }
+      />
     </div>
   </div>
 )
-}
 
 export default StyleGuide

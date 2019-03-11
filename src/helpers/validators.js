@@ -6,7 +6,7 @@ validate.extend(validate.validators.datetime, {
     return +moment.utc(value)
   },
   format: function(value, options) {
-    var format = options.dateOnly ? "YYYY-MM-DD" : "YYYY-MM-DD hh:mm:ss";
+    var format = options.dateOnly ? 'YYYY-MM-DD' : 'YYYY-MM-DD hh:mm:ss'
     return moment.utc(value).format(format)
   }
 })

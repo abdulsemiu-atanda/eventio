@@ -13,14 +13,16 @@ import './header.scss'
 const Header = ({location}) => (
   <header>
     <img alt='Eventio Logo' src={isLoggedIn() ? eventioDark : eventioLogo} />
-    {
-      isLoggedIn() ?
-      <ProfileBadge /> :
+    {isLoggedIn() ? (
+      <ProfileBadge />
+    ) : (
       <p className='uanuthenticated'>
         <span>{authText({location}).prompt}</span>
-        <Link to={signUpActive({location}) ? '/' : '/sign-up'}>{authText({location}).linkText}</Link>
+        <Link to={signUpActive({location}) ? '/' : '/sign-up'}>
+          {authText({location}).linkText}
+        </Link>
       </p>
-    }
+    )}
   </header>
 )
 

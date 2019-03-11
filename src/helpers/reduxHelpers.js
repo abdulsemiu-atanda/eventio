@@ -19,7 +19,7 @@ export const asyncActionNames = baseName => ({
  * @param {string} actionName
  * @returns {Object}
  */
-export const asyncActions = (actionName) => ({
+export const asyncActions = actionName => ({
   loading: bool => ({
     type: asyncActionNames(actionName).loading,
     data: bool
@@ -37,13 +37,11 @@ export const asyncActions = (actionName) => ({
 /**
  * Constructs axios request headers
  * @param {String} token - User access token
- * @returns {Object} 
+ * @returns {Object}
  */
 export const axiosHeaders = ({token}) => {
-  if (token)
-    return {Authorization: token, APIKey: API_KEY}
-  else
-    return {APIKey: API_KEY}
+  if (token) return {Authorization: token, APIKey: API_KEY}
+  else return {APIKey: API_KEY}
 }
 
 /**
@@ -58,8 +56,18 @@ export const axiosHeaders = ({token}) => {
 export const asyncRequest = ({endpoint, ACTION_NAME, payload, method, token}) => dispatch => {
   dispatch(asyncActions(ACTION_NAME).loading(true))
 
-  axios({method, url:`${API_HOST}${endpoint}`, data: payload ? payload : {}, headers: axiosHeaders({token})})
-  .then(response => {
-    dispatch(asyncActions(ACTION_NAME).success(clearResponse(response.data, cleanRequestHeaders(response.headers))))
-  }).catch(err => dispatch(asyncActions(ACTION_NAME).failure(true, err)))
+  axios({
+    method,
+    url: `${API_HOST}${endpoint}`,
+    data: payload ? payload : {},
+    headers: axiosHeaders({token})
+  })
+    .then(response => {
+      dispatch(
+        asyncActions(ACTION_NAME).success(
+          clearResponse(response.data, cleanRequestHeaders(response.headers))
+        )
+      )
+    })
+    .catch(err => dispatch(asyncActions(ACTION_NAME).failure(true, err)))
 }

@@ -20,7 +20,7 @@ class Events extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    if ((this.props.going.id !== prevProps.going.id) || (this.props.left.id !== prevProps.left.id))
+    if (this.props.going.id !== prevProps.going.id || this.props.left.id !== prevProps.left.id)
       this.props.asyncRequest({endpoint: '/events', ACTION_NAME: EVENTS, method: 'get'})
   }
 
@@ -37,16 +37,20 @@ class Events extends React.Component {
   render() {
     return (
       <div className={classnames('events', this.props.className)}>
-        {
-          this.props.events.map(event => (
-            <Event key={event.id} {...event} onClick={this.onClick} />
-          ))
-        }
+        {this.props.events.map(event => (
+          <Event key={event.id} {...event} onClick={this.onClick} />
+        ))}
       </div>
     )
   }
 }
 
-const mapStateToProps = ({eventActions}) => ({left: eventActions.left, going: eventActions.going})
+const mapStateToProps = ({eventActions}) => ({
+  left: eventActions.left,
+  going: eventActions.going
+})
 
-export default connect(mapStateToProps, {asyncRequest})(Events)
+export default connect(
+  mapStateToProps,
+  {asyncRequest}
+)(Events)
