@@ -5,10 +5,10 @@ module.exports = {
     directives: {
       baseUri: ["'self'"],
       blockAllMixedContent: true,
-      childSrc: ["'self'", config.API_HOST],
+      childSrc: ["'self'", config.API_URL],
       connectSrc: [
         "'self'",
-        config.API_HOST
+        config.API_URL
       ],
       defaultSrc: ["'none'"],
       fontSrc: [
@@ -17,11 +17,11 @@ module.exports = {
         'fonts.gstatic.com',
         'use.fontawesome.com'
       ],
-      formAction: ["'self'", config.API_HOST],
-      frameAncestors: ["'self'", config.API_HOST],
+      formAction: ["'self'", config.API_URL],
+      frameAncestors: ["'self'", config.API_URL],
       frameSrc: [
         "'self'",
-        config.API_HOST
+        config.API_URL
       ],
       imgSrc: ["'self'"],
       mediaSrc: ["'self'"],
